@@ -1,4 +1,4 @@
-class Admin::ArchivesController < ApplicationController
+class Admin::ArchivesController < AdminController
   before_action :set_admin_archive, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/archives
