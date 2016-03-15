@@ -1,16 +1,130 @@
 // Place all the styles related to the admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
 @import "bootstrap";
-
+$primary-color: #f7f6f2;
+body{
+  background-color: $primary-color;
+  a{
+    text-decoration:none;
+  }
+}
 #header{
-  nav{
+  nav#nav-top{
     position:fixed;
     top:0;
     left:0;
     right:0;
-    background-color: red;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dddddd;
     height:60px;
+    #logo{
+      z-index: 1;
+      cursor: pointer;
+      left:2px;
+      position: absolute;
+      img{
+        height:60px;
+        width:80px;
+      }
+    }
+    #search{
+      z-index: 2;
+      left:75px;
+      position: absolute;
+      width:auto;
+      height:60px;
+      //line-height: 60px;
+      padding-top: 15px;
+      padding-left: 10px;
+      form{
+        input{
+          border: 1px solid #CCCCCC;
+          border-radius: 5px;
+          width:180px;
+          height:30px;
+          padding-left: 10px;
+          transition:width 0.5s;
+          -moz-transition:width 0.5s; /* Firefox 4 */
+          -webkit-transition:width 0.5s; /* Safari and Chrome */
+          -o-transition:width 0.5s; /* Opera */
+          &:focus{
+            width:300px;
+          }
+        }
+      }
+    }
+    #admin{
+      z-index: 0;
+      position: relative;
+      width:auto;
+      height:60px;
+      margin:auto;
+      text-align: center;
+      font-size: 23px;
+      line-height: 60px;
+      span{
+        display: inline-block;
+      }
+    }
+
+    #menu-add{
+      z-index: 1;
+      cursor: pointer;
+      position: absolute;
+      top:0px;
+      width:80px;
+      height:60px;
+      right:166px;
+      padding-top: 17px;
+      i{
+        text-align: center;
+        font-size: 25px;
+        display: block;
+      }
+      &:hover{
+        background-color: #dddddd;
+      }
+    }
+    #menu-message{
+      z-index: 1;
+      cursor: pointer;
+      position: absolute;
+      top:0px;
+      width:80px;
+      height:60px;
+      right:86px;
+      padding-top: 19px;
+      i{
+        text-align: center;
+        font-size: 25px;
+        display: block;
+      }
+      &:hover{
+        background-color: #dddddd;
+      }
+    }
+
+    #menu-login{
+      z-index: 1;
+      cursor: pointer;
+      position: absolute;
+      top:0;
+      right:0px;
+      img{
+        height:60px;
+        width:80px;
+      }
+      i{
+        display: inline;
+        font-size: 10px;
+        margin-left: -10px;
+      }
+      &:hover{
+        background-color: #dddddd;
+      }
+    }
   }
 }
 #side-nav{
@@ -20,7 +134,41 @@
   left:0px;
   width:80px;
   overflow:auto;
-  background-color: green;
+  background-color: #333333;
+  nav#nav-side{
+    ul{
+      padding:0;
+      list-style:none;
+      li a{
+        padding:8px 0;
+        display: block;
+        text-align: center;
+        text-decoration:none;
+        i {
+          font-size: 20px;
+          color: #ffffff;
+          display: block;
+        }
+        span {
+          display: block;
+          padding-top: 5px;
+          color: #ffffff;
+        }
+        &:hover{
+          background-color: #4c4c4c;
+        }
+        &:active{
+          background-color: #3c3c3c;
+        }
+      }
+      li.active a {
+        background-color: #5c5c5c;
+        &:hover {
+          background-color: #4c4c4c;
+        }
+      }
+    }
+  }
 }
 #bodyer{
   padding-top: 85px;
@@ -30,12 +178,12 @@
     width:62%;
     height:auto;
     margin-right: 2%;
-    background-color: blue;
+    background-color: #ffffff;
   }
   #related-side{
     float:left;
     width:34%;
-    background-color: purple;
+    background-color: #ffffff;
     height:auto;
   }
 }

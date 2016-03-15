@@ -1,0 +1,44 @@
+
+nav:
+  -
+    text: 概览
+    icon: dashboard
+    path: index/index
+    controllers: index
+    actions: index
+  -
+    text: 博客
+    icon: th-large
+    path: articles/index
+    controllers: articles
+    actions: index,new,edit,show
+  -
+    text: 分类
+    icon: th-list
+    path: categories/index
+    controllers: categories
+    actions: index,new,edit,show
+  -
+    text: 标签
+    icon: tag
+    path: tags/index
+    controllers: tags
+    actions: index,new,edit,show
+  -
+    text: 归档
+    icon: list-alt
+    path: archives/index
+    controllers: archives
+    actions: index,new,edit,show
+  -
+    text: 留言
+    icon: envelope
+    path: messages/index
+    controllers: messages
+    actions: index,new,edit,show
+  -
+    text: 账户
+    icon: user
+    path: authors/index
+    controllers: authors
+    actions: index,new,edit,show

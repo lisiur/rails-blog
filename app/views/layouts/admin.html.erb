@@ -8,30 +8,59 @@
 </head>
 <body>
 <div id="header">
-  <nav>
+  <nav id="nav-top">
+    <div id="logo">
+      <img src="/assets/logo.png"/>
+    </div>
+    <div id="search">
+      <form class="" role="search">
+        <div class="">
+          <input type="text" class="" placeholder="Search...">
+        </div>
+        <button type="submit" class="hidden">Submit</button>
+      </form>
+    </div>
+    <div id="admin">
+      <span>lisiur</span>
+    </div>
 
+    <div id="menu-add">
+      <i class="glyphicon glyphicon-plus"></i>
+    </div>
+    <div id="menu-message">
+      <i class="glyphicon glyphicon-envelope"></i>
+    </div>
+    <div id="menu-login">
+      <img src="/assets/logo.png"/>
+      <i class="glyphicon glyphicon-chevron-down"></i>
+    </div>
   </nav>
 </div>
 <div id="side-nav">
-  adf<br>adf<br>adf<br>adf<br>
+  <nav id="nav-side">
+    <ul class="">
+      <% @navs.each do |nav| %>
+          <li class=<%= is_current(nav[:args]) %>>
+            <a href="<%= url_for nav[:options] %>" class="link">
+              <i class="glyphicon glyphicon-<%= nav[:icon] %>"></i>
+              <span><%= nav[:text] %></span>
+            </a>
+          </li>
+      <% end %>
+    </ul>
+  </nav>
 
 </div>
 <div id="bodyer">
 
   <div id="content">
     <%= yield %>
-    adf<br>
-    adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>
-    adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>
-    adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>
-    adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>
-    adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>
-    adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
   </div>
   <div id="related-side">
-    adf<br>
-    adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>
-    adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>adf<br>
   </div>
 
 </div>

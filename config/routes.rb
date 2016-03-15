@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  get 'index/index'
+  end
+
   root 'admin/articles#index'
   namespace :manage do
     resources :users
