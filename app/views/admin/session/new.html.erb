@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>用户登录</title>
+  <%= stylesheet_link_tag    'admin/session', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin/session', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="login_outer">
+    <div class="login_panel">
+      <div class="title">
+        <span>用户登录</span>
+      </div>
+      <div class="content">
+        <%= form_tag admin_login_path,method: :post do %>
+            <div class="form-item">
+              <%= text_field_tag :name,'', class:"form-input" %>
+            </div>
+            <div class="form-item">
+              <%= password_field_tag :password ,'', class:"form-input" %>
+            </div>
+            <div class="form-item">
+              <%= submit_tag "登录",class:"form-submit" %>
+            </div>
+        <% end %>
+        <div class="register">
+          <%= link_to '还没有账户，马上注册','/' %>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>

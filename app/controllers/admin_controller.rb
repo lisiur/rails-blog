@@ -1,8 +1,15 @@
 class AdminController < ApplicationController
   before_action :build_admin_cache
+  before_action :check_login
   before_action :set_nav
 
   private
+  def check_login
+    if !session[:admin_id]
+      redirect_to admin_login_url
+    end
+  end
+
   def build_admin_cache
     # @cache = Cache.new("admin-")
   end
