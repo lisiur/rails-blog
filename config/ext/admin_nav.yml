@@ -7,7 +7,7 @@ nav:
     controllers: index
     actions: index
   -
-    text: 博客
+    text: 博文
     icon: th-large
     path: articles/index
     controllers: articles

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315121039) do
+ActiveRecord::Schema.define(version: 20160316091402) do
 
   create_table "admin_archives", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,8 +19,13 @@ ActiveRecord::Schema.define(version: 20160315121039) do
   end
 
   create_table "admin_articles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "title",       limit: 255
+    t.text     "content",     limit: 65535
+    t.integer  "category_id", limit: 4
+    t.integer  "tag_id",      limit: 4
+    t.integer  "archive_id",  limit: 4
   end
 
   create_table "admin_authors", force: :cascade do |t|
@@ -33,8 +38,9 @@ ActiveRecord::Schema.define(version: 20160315121039) do
   end
 
   create_table "admin_categories", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "supcategory_id", limit: 4
   end
 
   create_table "admin_messages", force: :cascade do |t|
@@ -43,8 +49,9 @@ ActiveRecord::Schema.define(version: 20160315121039) do
   end
 
   create_table "admin_tags", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
   end
 
   create_table "index_users", force: :cascade do |t|
