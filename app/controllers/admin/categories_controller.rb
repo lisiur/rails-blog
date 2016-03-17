@@ -1,10 +1,15 @@
 class Admin::CategoriesController < AdminController
   before_action :set_admin_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_all_category, only: [:new, :edit, :update, :create]
 
   # GET /admin/categories
   # GET /admin/categories.json
   def index
-    @admin_categories = Admin::Category.all
+    if params[:supcategory].nil?
+      @admin_categories = Admin::Category.where(supcategory_id: nil)
+    else
+      @admin_categories = Admin::Category.where(supcategory_id: params[:supcategory])
+    end
   end
 
   # GET /admin/categories/1
@@ -28,7 +33,7 @@ class Admin::CategoriesController < AdminController
 
     respond_to do |format|
       if @admin_category.save
-        format.html { redirect_to @admin_category, notice: 'Category was successfully created.' }
+        format.html { redirect_to admin_categories_path, notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @admin_category }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class Admin::CategoriesController < AdminController
   def update
     respond_to do |format|
       if @admin_category.update(admin_category_params)
-        format.html { redirect_to @admin_category, notice: 'Category was successfully updated.' }
+        format.html { redirect_to admin_categories_path, notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_category }
       else
         format.html { render :edit }
@@ -65,10 +70,28 @@ class Admin::CategoriesController < AdminController
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_category
       @admin_category = Admin::Category.find(params[:id])
+
     end
 
+    def set_all_category
+      @all_categories = []
+      if Admin::Category.where(supcategory_id: nil)
+        Admin::Category.where(supcategory_id: nil).each {|c| dfs(@all_categories,0,c)}
+      end
+    end
+
+    def dfs(all_categories,level,node)
+      node.name = "&nbsp;&nbsp;&nbsp;"*level+node.name
+      all_categories.push([node.name.html_safe,node.id])
+      return if node.subcategories.count==0
+
+      level += 1
+      node.subcategories.each do |c|
+        dfs(all_categories,level,c)
+      end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_category_params
-      params.fetch(:admin_category, {})
+      params.require(:admin_category).permit(:name, :supcategory_id)
     end
 end

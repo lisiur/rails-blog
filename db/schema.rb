@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316091402) do
+ActiveRecord::Schema.define(version: 20160316132019) do
 
   create_table "admin_archives", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -38,9 +38,12 @@ ActiveRecord::Schema.define(version: 20160316091402) do
   end
 
   create_table "admin_categories", force: :cascade do |t|
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.integer  "supcategory_id", limit: 4
+    t.string   "name",           limit: 255
+    t.integer  "faved",          limit: 4,   default: 0
+    t.integer  "level",          limit: 4,   default: 0
   end
 
   create_table "admin_messages", force: :cascade do |t|

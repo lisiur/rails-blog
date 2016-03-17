@@ -9,6 +9,9 @@ body{
   a{
     text-decoration:none;
   }
+  h1{
+    font-size: 30px;
+  }
 }
 #header{
   nav#nav-top{
@@ -204,7 +207,7 @@ body{
       margin-top: 5px;
       padding-left: 20px;
       display: block;
-      width:200px;
+      width:199px;
       height:30px;
       background-color: #E4E3DF;
       text-align: left;
@@ -224,10 +227,25 @@ body{
 
   #content{
     float:left;
-    width:90%;
-    margin-left: 5%;
+    width:80%;
+    margin-left: 10%;
     height:auto;
-    //background-color: #ffffff;
+    form{
+      select{
+        width:200px;
+        height:35px;
+        background-color: white;
+        border: 1px solid #D1D1D1;
+        border-radius: 5px;
+      }
+      .submit{
+        border:1px solid #333333;
+        background-color: #333333;
+      }
+      .cancle{
+        background-color: $primary-color;
+      }
+    }
   }
 }
 #footer{

@@ -5,4 +5,6 @@ class Admin::Category < ActiveRecord::Base
   belongs_to :supcategory, class_name: "Admin::Category"
 
   has_many :articles
+
+  validates :name, presence:true,uniqueness: true
 end

@@ -32,17 +32,17 @@ cn:
     confirm_delete: 确认删除吗？
   activerecord:
     models:
-      index/student: 学生
-      manage/student: 学生
+      index/user: 用户
+      admin/category: 分类
+      admin/authors: 作者
+      admin/message: 留言
+      admin/tag: 标签
+      admin/article: 博文
+      admin/archive: 归档
 
     attributes:
-      index/student:
-        num: 学号
-        name: 姓名
-        password: 密码
-        password_confirmation: ""
-        desc: 描述
-        skills: 技能
+      admin/category:
+        name: 分类名
       manage/admin:
         user_name: '用户名'
         real_name: '真实姓名'
