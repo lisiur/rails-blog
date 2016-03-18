@@ -8,9 +8,17 @@ body{
   background-color: $primary-color;
   a{
     text-decoration:none;
+    &:hover{
+      text-decoration: none;
+    }
   }
   h1{
     font-size: 30px;
+  }
+  ul{
+    list-style:none;
+    margin:0;
+    padding:0;
   }
 }
 #header{

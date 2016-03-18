@@ -4,7 +4,7 @@
   <title>博客管理</title>
   <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    params[:controller]%>
-  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -26,7 +26,9 @@
     </div>
 
     <div id="menu-add">
-      <i class="glyphicon glyphicon-plus"></i>
+      <a href=<%= new_admin_article_path %>>
+        <i class="glyphicon glyphicon-plus"></i>
+      </a>
     </div>
     <div id="menu-message">
       <i class="glyphicon glyphicon-envelope"></i>
@@ -63,7 +65,9 @@
 
 </div>
 <div id="footer"></div>
-
+<%= javascript_include_tag 'admin' %>
+<%= javascript_include_tag params[:controller] %>
 
 </body>
+
 </html>

@@ -26,10 +26,11 @@ class Admin::ArticlesController < AdminController
   # POST /admin/articles.json
   def create
     @admin_article = Admin::Article.new(admin_article_params)
-
+    @admin_article.tag_names = params["admin_article"]["tag_names"]
+    @admin_article.category_ids = params["admin_article"][""]
     respond_to do |format|
       if @admin_article.save
-        format.html { redirect_to @admin_article, notice: 'Article was successfully created.' }
+        format.html { redirect_to admin_articles_path, notice: '已创建.' }
         format.json { render :show, status: :created, location: @admin_article }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class Admin::ArticlesController < AdminController
   def update
     respond_to do |format|
       if @admin_article.update(admin_article_params)
-        format.html { redirect_to @admin_article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to admin_articles_path, notice: '已更新.' }
         format.json { render :show, status: :ok, location: @admin_article }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class Admin::ArticlesController < AdminController
   def destroy
     @admin_article.destroy
     respond_to do |format|
-      format.html { redirect_to admin_articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to admin_articles_url, notice: '已删除.' }
       format.json { head :no_content }
     end
   end
@@ -87,6 +88,6 @@ class Admin::ArticlesController < AdminController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_article_params
-      params.fetch(:admin_article, {})
+      params.require(:admin_article).permit(:title, :content, :tag_names, :category_ids)
     end
 end

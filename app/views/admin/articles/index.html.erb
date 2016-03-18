@@ -17,7 +17,7 @@
   <tbody>
     <% @admin_articles.each do |admin_article| %>
       <tr>
-        <td><%= admin_article.name %></td>
+        <td><%= admin_article.title %></td>
         <td>
           <% admin_article.categories.each do |c| %>
             <%= link_to c.name,admin_categories_path+"?#{c.name}" %>
@@ -29,7 +29,7 @@
           <% end %>
         </td>
         <td><%= admin_article.created_at %></td>
-        <td><%= admin_article.status %></td>
+        <td><%= admin_article.state %></td>
         <td><%= link_to '编辑', edit_admin_article_path(admin_article) %></td>
         <td><%= link_to '删除', admin_article, method: :delete, data: { confirm: '确定删除?' } %></td>
       </tr>

@@ -82,7 +82,9 @@ gem 'mini_magick'
 # gem 'awesome_print'
 
 gem 'paperclip'
-
+# markdown
+gem 'redcarpet'
+gem 'coderay'
 # 更友好地显示错误信息
 group :development do
   gem "better_errors"

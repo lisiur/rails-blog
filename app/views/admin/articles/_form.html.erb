@@ -1,3 +1,4 @@
+
 <%= form_for(@admin_article) do |f| %>
     <%= form_errors(@admin_article) %>
 
@@ -10,9 +11,10 @@
           <%= f.text_area :content,class:"form-control",placeholder:"writing" %>
         </div>
 
+
         <div class="form-group action">
           <%= link_to '取消', admin_articles_path,class:"btn btn-default cancle" %>
-          <%= f.submit class:"btn btn-primary submit" %>
+          <%= f.submit class:"btn btn-primary submit",id:"submit" %>
         </div>
     </div>
     <div class="related-form">
@@ -20,17 +22,21 @@
       <div class="category">
         <% @all_categories.each do |c| %>
             <%= ("&nbsp&nbsp"*c.level).html_safe %>
-            <%= f.check_box :category_id,{multiple:true},"#{c.id}","" %><%= c.name %><br>
+            <%= check_box_tag "admin_article[category_ids][]",c.id,@admin_article.categories.include?(c),{multiple:true} %><%= c.name %><br>
         <% end %>
       </div>
       <%= f.label "标签" %>
       <div class="tag">
-        <ul>
+        <ul class="tag-ul">
             <% @admin_article.tags.each do |t| %>
-                <li class="inactive"><%= text_field_tag "admin_article[tag_id][]",tag.name,{multiple:true} %></li>
+              <li class="inactive">
+                <%= text_field_tag "admin_article[tag_names][]",t.name %>
+                <span class="glyphicon glyphicon-remove"></span>
+              </li>
+
             <% end %>
-          <li>
-            <%= text_field_tag "admin_article[tag_id][]","",{multiple:true} %>
+          <li class="current_input_tag">
+            <%= text_field_tag "admin_article[tag_names][]",nil %>
           </li>
         </ul>
       </div>

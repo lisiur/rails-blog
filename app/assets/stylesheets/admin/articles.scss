@@ -33,17 +33,35 @@
     border-radius: 8px;
     background-color: white;
     ul{
-      margin:0;
-      padding:0;
+
+      li{
+        margin-top:2px;
+      }
       input{
         border:none;
         background-color: white;
+
+        &:focus{
+          outline: none;
+        }
       }
       li.inactive{
+        background-color: #F3F3F0;
         input{
+          padding-left: 2%;
+          width:88%;
           background-color: #F3F3F0;
         }
+        span{
+          width:8%;
+          &:hover{
+            cursor: pointer;
+          }
+        }
 
+      }
+      li.current_input_tag{
+        width:100%;
       }
     }
   }

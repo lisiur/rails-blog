@@ -1,4 +1,2 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_admin_article_path(@admin_article) %> |
-<%= link_to 'Back', admin_articles_path %>
+<%= markdown @admin_article.title %>
+<%= markdown @admin_article.content %>
