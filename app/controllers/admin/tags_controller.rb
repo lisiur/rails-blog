@@ -28,7 +28,7 @@ class Admin::TagsController < AdminController
 
     respond_to do |format|
       if @admin_tag.save
-        format.html { redirect_to @admin_tag, notice: 'Tag was successfully created.' }
+        format.html { redirect_to admin_tags_path, notice: 'Tag was successfully created.' }
         format.json { render :show, status: :created, location: @admin_tag }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::TagsController < AdminController
   def update
     respond_to do |format|
       if @admin_tag.update(admin_tag_params)
-        format.html { redirect_to @admin_tag, notice: 'Tag was successfully updated.' }
+        format.html { redirect_to admin_tags_path, notice: 'Tag was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_tag }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class Admin::TagsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_tag_params
-      params.fetch(:admin_tag, {})
+      params.require(:admin_tag).permit(:name)
     end
 end

@@ -1,5 +1,6 @@
 class Admin::ArticlesController < AdminController
   before_action :set_admin_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_all_category, only: [:new, :edit, :update, :create]
 
   # GET /admin/articles
   # GET /admin/articles.json
@@ -67,6 +68,23 @@ class Admin::ArticlesController < AdminController
       @admin_article = Admin::Article.find(params[:id])
     end
 
+  def set_all_category
+    @all_categories = []
+    if Admin::Category.where(supcategory_id: nil)
+      Admin::Category.where(supcategory_id: nil).each {|c| dfs(@all_categories,0,c)}
+    end
+  end
+
+  def dfs(all_categories,level,node)
+    node.level = level
+    all_categories.push(node)
+    return if node.subcategories.count==0
+
+    level += 1
+    node.subcategories.each do |c|
+      dfs(all_categories,level,c)
+    end
+  end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_article_params
       params.fetch(:admin_article, {})
