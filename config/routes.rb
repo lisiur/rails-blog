@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
 
-  root 'admin/articles#index'
+  namespace :index do
+  get 'home/index'
+  end
+
+  root 'index/home#index'
 
   namespace :manage do
     resources :users

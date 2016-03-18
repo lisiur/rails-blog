@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lisiur's Blog</title>
+  <%= stylesheet_link_tag    'index', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    params[:controller]%>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header">
+  <nav id="nav-top">
+    <div id="logo">
+      <img src="/assets/logo.png"/>
+    </div>
+    <div id="search">
+      <form class="" role="search">
+        <div class="">
+          <input type="text" class="" placeholder="Search...">
+        </div>
+        <button type="submit" class="hidden">Submit</button>
+      </form>
+    </div>
+    <div id="admin">
+      <% @all_categories.each do |c| %>
+          <span><%= c.name %></span>
+      <% end %>
+
+    </div>
+
+    <div id="menu-login">
+      <a href=<%= admin_login_path %>>
+        <img src="/assets/logo.png"/>
+      </a>
+    </div>
+  </nav>
+</div>
+<div id="bodyer">
+  <div class="line"></div>
+  <% @all_articles.each do |a| %>
+      <section class="article">
+        <div class="time-line">
+
+          <%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %>
+        </div>
+        <div class="article-main">
+          <div class="article-title">
+            <h1><%= a.title %></h1>
+          </div>
+          <div class="article-content">
+            <%= a.content %>
+          </div>
+        </div>
+      </section>
+  <% end %>
+</div>
+<div id="footer"></div>
+<%= javascript_include_tag 'index' %>
+<%= javascript_include_tag params[:controller] %>
+
+</body>
+
+</html>
