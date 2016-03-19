@@ -22,8 +22,8 @@
       </form>
     </div>
     <div id="admin">
-      <% @all_categories.each do |c| %>
-          <span><%= c.name %></span>
+      <% @all_article_types.each do |t| %>
+          <span><%= t.name %></span>
       <% end %>
 
     </div>
@@ -36,29 +36,7 @@
   </nav>
 </div>
 <div id="bodyer">
-  <div class="line"></div>
-  <% @all_articles.each do |a| %>
-      <section class="article">
-        <div class="time-line">
-          <div class="article-type">
-            <span class="glyphicon glyphicon-<%= a.article_type.glyphicon %>"></span>
-          </div>
-          <div class="article-date">
-            <%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %>
-          </div>
-          <div class="article-author"></div>
-
-        </div>
-        <div class="article-main">
-          <div class="article-title">
-            <h1><%= a.title %></h1>
-          </div>
-          <div class="article-content">
-            <%= a.content %>
-          </div>
-        </div>
-      </section>
-  <% end %>
+    <%= yield %>
 </div>
 <div id="footer"></div>
 <%= javascript_include_tag 'index' %>

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     resources :article_types
   end
   namespace :index do
-  get 'home/index'
+    get 'home/index'
+    get 'article/:title' => 'home#show',title: /[^\/]+/,as: :article
   end
 
   root 'index/home#index'

@@ -1,0 +1,22 @@
+<div class="line"></div>
+
+<section id="show-article" class="article">
+  <div class="time-line">
+    <div class="article-type">
+      <span class="glyphicon glyphicon-<%= @article.article_type.glyphicon %>"></span>
+    </div>
+    <div class="article-date">
+      <%= DateTime.parse(@article.created_at.to_s).strftime('%Y-%m-%d') %>
+    </div>
+    <div class="article-author"></div>
+
+  </div>
+  <div class="article-main">
+    <div class="article-title">
+      <h1><%= @article.title %></h1>
+    </div>
+    <div class="article-content">
+      <%= markdown @article.content %>
+    </div>
+  </div>
+</section>

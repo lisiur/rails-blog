@@ -1,6 +1,9 @@
 class Index::HomeController < IndexController
   def index
     @all_articles = Admin::Article.all.order("created_at DESC")
-    @all_categories = Admin::Category.where(supcategory_id: nil)
+
+  end
+  def show
+    @article = Admin::Article.find_by_title(params[:title])
   end
 end
