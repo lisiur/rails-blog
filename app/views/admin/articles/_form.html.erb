@@ -40,5 +40,9 @@
           </li>
         </ul>
       </div>
+      <%= f.label "所属类型" %>
+      <div class="type">
+        <%= f.select :article_type_id,@all_article_types %>
+      </div>
     </div>
 <% end %>

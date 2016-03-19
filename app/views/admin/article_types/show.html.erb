@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin_article_type.name %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @admin_article_type.img %>
+</p>
+
+<%= link_to 'Edit', edit_admin_article_type_path(@admin_article_type) %> |
+<%= link_to 'Back', admin_article_types_path %>

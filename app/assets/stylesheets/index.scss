@@ -113,22 +113,47 @@ body{
     bottom:0px;
     width:2px;
     border:1px solid #DEE8EF;
-    z-index: 0;
+    z-index: -1;
 
   }
   .article{
-    z-index: 1;
+    z-index: 9;
     width:80%;
     margin-top: 75px;
     margin-left: 10%;
     height:300px;
 
     .time-line{
+      z-index: 9;
       text-align: center;
       float:left;
       width:20%;
       height:100%;
-
+      .article-type{
+        margin:0 auto;
+        text-align: center;
+        width:60px;
+        height:60px;
+        border-radius: 100%;
+        background-color: #90A1AC;
+        span{
+          padding-top: 18px;
+          color:white;
+          font-size: 25px;
+          font-weight: bold;
+        }
+      }
+      .article-date{
+        margin:0 auto;
+        max-width:90px;
+        height:25px;
+        font-size: 13px;
+        padding-top: 4px;
+        color:#90A1AC;
+        background-color: #DEE8EF;
+        margin-top: 20px;
+        border-radius: 5px;
+      }
     }
     .article-main{
       float:left;

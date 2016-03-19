@@ -40,8 +40,14 @@
   <% @all_articles.each do |a| %>
       <section class="article">
         <div class="time-line">
+          <div class="article-type">
+            <span class="glyphicon glyphicon-<%= a.article_type.glyphicon %>"></span>
+          </div>
+          <div class="article-date">
+            <%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %>
+          </div>
+          <div class="article-author"></div>
 
-          <%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %>
         </div>
         <div class="article-main">
           <div class="article-title">

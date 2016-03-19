@@ -1,0 +1,25 @@
+<p id="notice"></p>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>类型名</th>
+      <th>图标</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_article_types.each do |admin_article_type| %>
+      <tr>
+        <td><%= admin_article_type.name %></td>
+        <td><span class="glyphicon glyphicon-<%= admin_article_type.glyphicon %>"></span></td>
+        <!--<td><%= image_tag admin_article_type.img_url(:thumb) if admin_article_type.img %></td>-->
+        <td><%= link_to '编辑', edit_admin_article_type_path(admin_article_type) %></td>
+        <td><%= link_to '删除', admin_article_type, method: :delete, data: { confirm: '确定删除?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

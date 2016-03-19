@@ -1,6 +1,7 @@
 class Admin::Article < ActiveRecord::Base
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :tags
+  belongs_to :article_type, :class_name => 'Admin::ArticleType'
 
   attr_accessor :tag_names
   attr_accessor :category_ids

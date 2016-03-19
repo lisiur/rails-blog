@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  namespace :admin do
+    resources :article_types
+  end
   namespace :index do
   get 'home/index'
   end

@@ -1,6 +1,7 @@
 class Admin::ArticlesController < AdminController
   before_action :set_admin_article, only: [:show, :edit, :update, :destroy]
   before_action :set_all_category, only: [:new, :edit, :update, :create]
+  before_action :set_all_article_type, only: [:new, :edit, :update, :create]
 
   # GET /admin/articles
   # GET /admin/articles.json
@@ -69,6 +70,12 @@ class Admin::ArticlesController < AdminController
       @admin_article = Admin::Article.find(params[:id])
     end
 
+  def set_all_article_type
+
+    @all_article_types = []
+    all_article_types = Admin::ArticleType.all
+    all_article_types.each {|t| @all_article_types << [t.name,t.id]}
+  end
   def set_all_category
     @all_categories = []
     if Admin::Category.where(supcategory_id: nil)
@@ -88,6 +95,6 @@ class Admin::ArticlesController < AdminController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_article_params
-      params.require(:admin_article).permit(:title, :content, :tag_names, :category_ids)
+      params.require(:admin_article).permit(:title, :content, :tag_names, :category_ids, :article_type_id)
     end
 end
