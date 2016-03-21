@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   root 'index/home#index'
+  get '/u/:name' => "index/home#index"
 
   namespace :manage do
     get '/' => "index#index"

@@ -44,6 +44,7 @@ class Admin::ArticlesController < AdminController
   def update
     respond_to do |format|
       if @admin_article.update(admin_article_params)
+        update_author_tags_categories
         format.html { redirect_to admin_articles_path, notice: '已更新.' }
         format.json { render :show, status: :ok, location: @admin_article }
       else
@@ -66,7 +67,7 @@ class Admin::ArticlesController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_article
-      @admin_article = @login_author.categories.find_by_id(params[:id])
+      @admin_article = @login_author.articles.find_by_id(params[:id])
       if @admin_article.nil?
         render html: "<strong>Not Found</strong>".html_safe and return
       end
@@ -99,10 +100,19 @@ class Admin::ArticlesController < AdminController
   def add_author_tags_categories_archive
     @admin_article.author_id = @login_author.id
     @admin_article.tag_names = params["admin_article"]["tag_names"]
-    @admin_article.category_ids = params["admin_article"][""]
+    @admin_article.category_ids = params["admin_article"]["category_ids"]
     archive = @login_author.archives.where({year:Time.now.year,month:Time.now.month})
     archive = Admin::Archive.create(year:Time.now.year,month:Time.now.month,author_id:@login_author.id) if archive.empty?
     @admin_article.archive_id = archive.id
+    @admin_article.add_categories
+    @admin_article.add_tags(@login_author.id)
+  end
+
+  def update_author_tags_categories
+    @admin_article.tag_names = params["admin_article"]["tag_names"]
+    @admin_article.category_ids = params["admin_article"]["category_ids"]
+    @admin_article.add_categories
+    @admin_article.add_tags(@login_author.id)
   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_article_params

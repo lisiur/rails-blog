@@ -8,10 +8,6 @@ class Admin::Article < ActiveRecord::Base
   attr_accessor :tag_names
   attr_accessor :category_ids
 
-  before_save :add_categories
-  before_update :add_categories
-  before_save :add_tags
-  before_update :add_tags
 
   def state
     return "已发布" if status == 1
@@ -23,14 +19,14 @@ class Admin::Article < ActiveRecord::Base
     category_ids.each{|id| add_category(id)} if category_ids
   end
 
-  def add_tags
+  def add_tags(author_id)
     tags.clear
-    tag_names.each {|t| add_tag(t)} if tag_names
+    tag_names.each {|t| add_tag(t,author_id)} if tag_names
   end
 
   private
-  def add_tag(tagName)
-    current_tag = Admin::Tag.find_by_name(tagName) || Admin::Tag.new(name:tagName)
+  def add_tag(tagName,author_id)
+    current_tag = Admin::Tag.find_by_name(tagName) || Admin::Tag.new(name:tagName,author_id:author_id)
     tags<<current_tag if current_tag.save
   end
 

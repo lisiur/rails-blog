@@ -30,12 +30,12 @@ nav:
     path: archives/index
     controllers: archives
     actions: index,new,edit,show
-  -
-    text: 留言
-    icon: envelope
-    path: messages/index
-    controllers: messages
-    actions: index,new,edit,show
+#  -
+#    text: 留言
+#    icon: envelope
+#    path: messages/index
+#    controllers: messages
+#    actions: index,new,edit,show
   -
     text: 账户
     icon: user

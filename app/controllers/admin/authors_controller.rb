@@ -19,14 +19,22 @@ class Admin::AuthorsController < AdminController
 
   end
   def update_password
-
+    if @login_author.authenticate(params[:password_formal])
+      if @admin_author.update(admin_author_params)
+        format.html { redirect_to admin_authors_path, notice: '更新成功.' }
+        format.json { render :show, status: :ok, location: @admin_author }
+      else
+        format.html { render :edit }
+        format.json { render json: @admin_author.errors, status: :unprocessable_entity }
+      end
+    end
   end
   # PATCH/PUT /admin/authors/1
   # PATCH/PUT /admin/authors/1.json
   def update
     respond_to do |format|
       if @admin_author.update(admin_author_params)
-        format.html { redirect_to @admin_author, notice: 'Author was successfully updated.' }
+        format.html { redirect_to admin_authors_path, notice: '更新成功.' }
         format.json { render :show, status: :ok, location: @admin_author }
       else
         format.html { render :edit }
@@ -44,6 +52,6 @@ class Admin::AuthorsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_author_params
-      params.fetch(:admin_author, {})
+      params.require(:admin_author).permit(:name, :password, :password_confirmation, :email, :avatar)
     end
 end

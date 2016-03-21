@@ -28,7 +28,7 @@ class Manage::ArticleTypesController < ManageController
 
     respond_to do |format|
       if @admin_article_type.save
-        format.html { redirect_to admin_article_types_path, notice: '创建成功.' }
+        format.html { redirect_to manage_article_types_path, notice: '创建成功.' }
         format.json { render :show, status: :created, location: @admin_article_type }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Manage::ArticleTypesController < ManageController
   def update
     respond_to do |format|
       if @admin_article_type.update(admin_article_type_params)
-        format.html { redirect_to admin_article_types_path, notice: '更新成功.' }
+        format.html { redirect_to manage_article_types_path, notice: '更新成功.' }
         format.json { render :show, status: :ok, location: @admin_article_type }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Manage::ArticleTypesController < ManageController
   def destroy
     @admin_article_type.destroy
     respond_to do |format|
-      format.html { redirect_to admin_article_types_url, notice: '删除成功.' }
+      format.html { redirect_to manage_article_types_url, notice: '删除成功.' }
       format.json { head :no_content }
     end
   end
