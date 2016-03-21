@@ -22,7 +22,7 @@
       </form>
     </div>
     <div id="admin">
-      <span>lisiur</span>
+      <span><%= @login_author.name %></span>
     </div>
 
     <div id="menu-add">
@@ -34,8 +34,10 @@
       <i class="glyphicon glyphicon-envelope"></i>
     </div>
     <div id="menu-login">
-      <img src="/assets/logo.png"/>
-      <i class="glyphicon glyphicon-chevron-down"></i>
+      <a href=<%= admin_logout_path %> data-method="DELETE" >
+          <img src="/assets/logo.png"/>
+          <i class="glyphicon glyphicon-chevron-down"></i>
+      </a>
     </div>
   </nav>
 </div>

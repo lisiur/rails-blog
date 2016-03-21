@@ -11,11 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319024805) do
+ActiveRecord::Schema.define(version: 20160321084223) do
 
   create_table "admin_archives", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "author_id",  limit: 4
+    t.integer  "year",       limit: 4
+    t.integer  "month",      limit: 4
   end
 
   create_table "admin_article_types", force: :cascade do |t|
@@ -34,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160319024805) do
     t.integer  "archive_id",      limit: 4
     t.integer  "status",          limit: 4,     default: 1
     t.integer  "article_type_id", limit: 4
+    t.integer  "author_id",       limit: 4
   end
 
   create_table "admin_articles_categories", id: false, force: :cascade do |t|
@@ -62,17 +66,20 @@ ActiveRecord::Schema.define(version: 20160319024805) do
     t.string   "name",           limit: 255
     t.integer  "faved",          limit: 4,   default: 0
     t.integer  "level",          limit: 4,   default: 0
+    t.integer  "author_id",      limit: 4
   end
 
   create_table "admin_messages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "author_id",  limit: 4
   end
 
   create_table "admin_tags", force: :cascade do |t|
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "name",       limit: 255
+    t.integer  "author_id",  limit: 4
   end
 
   create_table "index_users", force: :cascade do |t|

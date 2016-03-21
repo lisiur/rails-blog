@@ -1,0 +1,25 @@
+<%= form_for @admin_author, url: manage_authors_path,method: :post do |f| %>
+  <% form_errors @admin_author %>
+
+
+    <div class="form-group">
+      <%= f.text_field :name, class:"form-control",placeholder:"请输入用户名" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.password_field :password, class:"form-control",placeholder:"请输入密码" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, class:"form-control",placeholder:"请确认密码" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_field :email, class:"form-control",placeholder:"请输入邮箱" %>
+    </div>
+
+    <div class="form-group action">
+      <%= link_to '取消', manage_authors_path,class:"btn btn-default cancle" %>
+      <%= f.submit class:"btn btn-primary submit" %>
+    </div>
+<% end %>

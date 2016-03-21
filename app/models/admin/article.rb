@@ -2,6 +2,8 @@ class Admin::Article < ActiveRecord::Base
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :tags
   belongs_to :article_type, :class_name => 'Admin::ArticleType'
+  belongs_to :author
+  belongs_to :archive
 
   attr_accessor :tag_names
   attr_accessor :category_ids
@@ -15,6 +17,7 @@ class Admin::Article < ActiveRecord::Base
     return "已发布" if status == 1
     return "未发布" if status == 0
   end
+
   def add_categories
     categories.clear
     category_ids.each{|id| add_category(id)} if category_ids

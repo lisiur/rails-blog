@@ -6,7 +6,7 @@ class Admin::ArticlesController < AdminController
   # GET /admin/articles
   # GET /admin/articles.json
   def index
-    @admin_articles = Admin::Article.all
+    @admin_articles = @login_author.articles
   end
 
   # GET /admin/articles/1
@@ -27,8 +27,7 @@ class Admin::ArticlesController < AdminController
   # POST /admin/articles.json
   def create
     @admin_article = Admin::Article.new(admin_article_params)
-    @admin_article.tag_names = params["admin_article"]["tag_names"]
-    @admin_article.category_ids = params["admin_article"][""]
+    add_author_tags_categories_archive
     respond_to do |format|
       if @admin_article.save
         format.html { redirect_to admin_articles_path, notice: '已创建.' }
@@ -67,7 +66,10 @@ class Admin::ArticlesController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_article
-      @admin_article = Admin::Article.find(params[:id])
+      @admin_article = @login_author.categories.find_by_id(params[:id])
+      if @admin_article.nil?
+        render html: "<strong>Not Found</strong>".html_safe and return
+      end
     end
 
   def set_all_article_type
@@ -78,8 +80,8 @@ class Admin::ArticlesController < AdminController
   end
   def set_all_category
     @all_categories = []
-    if Admin::Category.where(supcategory_id: nil)
-      Admin::Category.where(supcategory_id: nil).each {|c| dfs(@all_categories,0,c)}
+    if @login_author.categories.where(supcategory_id: nil)
+      @login_author.categories.where(supcategory_id: nil).each {|c| dfs(@all_categories,0,c)}
     end
   end
 
@@ -92,6 +94,15 @@ class Admin::ArticlesController < AdminController
     node.subcategories.each do |c|
       dfs(all_categories,level,c)
     end
+  end
+
+  def add_author_tags_categories_archive
+    @admin_article.author_id = @login_author.id
+    @admin_article.tag_names = params["admin_article"]["tag_names"]
+    @admin_article.category_ids = params["admin_article"][""]
+    archive = @login_author.archives.where({year:Time.now.year,month:Time.now.month})
+    archive = Admin::Archive.create(year:Time.now.year,month:Time.now.month,author_id:@login_author.id) if archive.empty?
+    @admin_article.archive_id = archive.id
   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_article_params

@@ -4,7 +4,7 @@ class Admin::TagsController < AdminController
   # GET /admin/tags
   # GET /admin/tags.json
   def index
-    @admin_tags = Admin::Tag.all
+    @admin_tags = @login_author.tags
   end
 
   # GET /admin/tags/1
@@ -25,7 +25,7 @@ class Admin::TagsController < AdminController
   # POST /admin/tags.json
   def create
     @admin_tag = Admin::Tag.new(admin_tag_params)
-
+    @admin_tag.author_id = @login_author.id
     respond_to do |format|
       if @admin_tag.save
         format.html { redirect_to admin_tags_path, notice: 'Tag was successfully created.' }
@@ -64,7 +64,10 @@ class Admin::TagsController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_tag
-      @admin_tag = Admin::Tag.find(params[:id])
+      @admin_tag = @login_author.tags.find_by_id(params[:id])
+      if @admin_tag.nil?
+        render html: "<strong>Not Found</strong>".html_safe and return
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

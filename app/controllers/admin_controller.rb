@@ -5,7 +5,8 @@ class AdminController < ApplicationController
 
   private
   def check_login
-    if !session[:admin_id]
+    @login_author = Admin::Author.find_by_id(session[:author_id])
+    if @login_author.nil?
       redirect_to admin_login_url
     end
   end

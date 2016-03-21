@@ -31,12 +31,6 @@ nav:
     controllers: archives
     actions: index,new,edit,show
   -
-    text: 类别
-    icon: list-alt
-    path: article_types/index
-    controllers: article_types
-    actions: index,new,edit,show
-  -
     text: 留言
     icon: envelope
     path: messages/index
@@ -47,4 +41,4 @@ nav:
     icon: user
     path: authors/index
     controllers: authors
-    actions: index,new,edit,show
+    actions: index,edit,show,repassword

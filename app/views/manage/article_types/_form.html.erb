@@ -1,4 +1,4 @@
-<%= form_for @admin_article_type do |f| %>
+<%= form_for @admin_article_type,url:manage_article_type_path do |f| %>
     <%= form_errors(@admin_article_type) %>
 
     <div class="form-group">
@@ -16,7 +16,7 @@
     <!--</div>-->
 
     <div class="form-group action">
-      <%= link_to '取消', admin_categories_path,class:"btn btn-default cancle" %>
+      <%= link_to '取消', manage_article_types_url,class:"btn btn-default cancle" %>
       <%= f.submit class:"btn btn-primary submit" %>
     </div>
 <% end %>

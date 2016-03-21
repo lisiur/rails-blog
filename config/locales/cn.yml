@@ -39,6 +39,7 @@ cn:
       admin/tag: 标签
       admin/article: 博文
       admin/archive: 归档
+      manage/authors: 作者
 
     attributes:
       admin/category:

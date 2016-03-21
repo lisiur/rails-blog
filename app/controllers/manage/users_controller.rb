@@ -1,4 +1,4 @@
-class Manage::UsersController < ApplicationController
+class Manage::UsersController < ManageController
   before_action :set_manage_user, only: [:show, :edit, :update, :destroy]
 
   # GET /manage/users

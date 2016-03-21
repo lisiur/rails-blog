@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
 
-
-  namespace :admin do
-    resources :article_types
-  end
   namespace :index do
     get 'home/index'
     get 'article/:title' => 'home#show',title: /[^\/]+/,as: :article
+    resources :users
   end
 
   root 'index/home#index'
 
   namespace :manage do
+    get '/' => "index#index"
+    get 'login' => 'session#new'
+    post 'login' => 'session#create'
+    delete 'login' => 'session#destroy'
     resources :users
+    resources :authors
+    resources :article_types
   end
 
   namespace :admin do
@@ -20,16 +23,15 @@ Rails.application.routes.draw do
     get 'index/index'
     get 'login' => 'session#new'
     post 'login' => 'session#create'
-    delete 'login' => 'session#destroy'
-    resources :authors
+    delete 'logout' => 'session#destroy'
     resources :archives
     resources :categories
     resources :tags
     resources :articles
     resources :messages
+    resources :authors,only:[:index,:edit,:update,:show]
+    get 'repassword' => 'authors#repassword'
+    post 'repassword' => 'authors#update_password'
   end
 
-  namespace :index do
-    resources :users
-  end
 end

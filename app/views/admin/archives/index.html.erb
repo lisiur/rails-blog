@@ -11,7 +11,7 @@
   <tbody>
     <% @admin_archives.each do |admin_archive| %>
       <tr>
-        <td><%= admin_archive.name %></td>
+        <td><%= "#{admin_archive.year}/#{admin_archive.month}" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -3,6 +3,7 @@ class Admin::Category < ActiveRecord::Base
                            foreign_key: "supcategory_id"
 
   belongs_to :supcategory, class_name: "Admin::Category"
+  belongs_to :author
 
   has_and_belongs_to_many :articles
 

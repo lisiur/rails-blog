@@ -4,7 +4,7 @@ class Admin::ArchivesController < AdminController
   # GET /admin/archives
   # GET /admin/archives.json
   def index
-    @admin_archives = Admin::Archive.all
+    @admin_archives = @login_author.archives
   end
 
   # GET /admin/archives/1
@@ -64,7 +64,10 @@ class Admin::ArchivesController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_archive
-      @admin_archive = Admin::Archive.find(params[:id])
+      @admin_archive = @login_author.archives.find_by_id(params[:id])
+      if @admin_archive.nil?
+        render html: "<strong>Not Found</strong>".html_safe and return
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

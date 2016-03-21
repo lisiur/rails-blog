@@ -6,9 +6,9 @@ class Admin::CategoriesController < AdminController
   # GET /admin/categories.json
   def index
     if params[:supcategory].nil?
-      @admin_categories = Admin::Category.where(supcategory_id: nil)
+      @admin_categories = @login_author.categories.where(supcategory_id: nil)
     else
-      @admin_categories = Admin::Category.where(supcategory_id: params[:supcategory])
+      @admin_categories = @login_author.categories.where(supcategory_id: params[:supcategory])
     end
   end
 
@@ -30,7 +30,7 @@ class Admin::CategoriesController < AdminController
   # POST /admin/categories.json
   def create
     @admin_category = Admin::Category.new(admin_category_params)
-
+    @admin_category.author_id = @login_author.id
     respond_to do |format|
       if @admin_category.save
         format.html { redirect_to admin_categories_path, notice: 'Category was successfully created.' }
@@ -69,8 +69,10 @@ class Admin::CategoriesController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_category
-      @admin_category = Admin::Category.find(params[:id])
-
+      @admin_category = @login_author.categories.find_by_id(params[:id])
+      if @admin_category.nil?
+        render html: "<strong>Not Found</strong>".html_safe and return
+      end
     end
 
     def set_all_category

@@ -1,4 +1,4 @@
-class Admin::ArticleTypesController < AdminController
+class Manage::ArticleTypesController < ManageController
   before_action :set_admin_article_type, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/article_types
@@ -62,13 +62,13 @@ class Admin::ArticleTypesController < AdminController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_article_type
-      @admin_article_type = Admin::ArticleType.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin_article_type
+    @admin_article_type = Admin::ArticleType.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_article_type_params
-      params.require(:admin_article_type).permit(:name, :img,:glyphicon)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_article_type_params
+    params.require(:admin_article_type).permit(:name, :img,:glyphicon)
+  end
 end

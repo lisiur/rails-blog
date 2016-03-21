@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Admin Authors</h1>
+<p id="notice"></p>
 
 <table>
   <thead>
@@ -10,16 +8,10 @@
   </thead>
 
   <tbody>
-    <% @admin_authors.each do |admin_author| %>
-      <tr>
-        <td><%= link_to 'Show', admin_author %></td>
-        <td><%= link_to 'Edit', edit_admin_author_path(admin_author) %></td>
-        <td><%= link_to 'Destroy', admin_author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+
+  <tr>
+    <td><%= @admin_author.name %></td>
+  </tr>
+
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Author', new_admin_author_path %>
