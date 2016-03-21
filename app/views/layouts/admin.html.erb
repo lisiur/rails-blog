@@ -34,10 +34,10 @@
       <i class="glyphicon glyphicon-envelope"></i>
     </div>
     <div id="menu-login">
-      <a href=<%= admin_logout_path %> data-method="DELETE" >
+      <%= link_to admin_logout_path,method: :delete do %>
           <img src="/assets/logo.png"/>
           <i class="glyphicon glyphicon-chevron-down"></i>
-      </a>
+      <% end %>
     </div>
   </nav>
 </div>
