@@ -23,7 +23,7 @@
     </div>
     <div id="admin">
       <% @all_article_types.each do |t| %>
-          <span><%= t.name %></span>
+          <span class="glyphicon glyphicon-<%= t.glyphicon %>"></span>
       <% end %>
 
     </div>
