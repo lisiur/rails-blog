@@ -141,6 +141,39 @@ body{
         background-color: #dddddd;
       }
     }
+    .login_menu{
+      display: none;
+      position:absolute;
+      right:0;
+      top:60px;
+      text-align: center;
+      ul{
+        width:120px;
+        height:auto;
+        li{
+          height:40px;
+          width:100%;
+          line-height: 40px;
+          border-bottom: 1px solid #DDD;
+          border-left: 1px solid #DDD;
+          background-color: #F6F6F6;
+          &:hover{
+            background-color:#DDD;
+          }
+          a{
+            display: block;
+            width:100%;
+            color:gray;
+            &:hover{
+              color:gray;
+            }
+            i{
+              padding-right: 5px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 #side-nav{

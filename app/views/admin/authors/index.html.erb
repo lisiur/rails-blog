@@ -1,17 +1,20 @@
-<p id="notice"></p>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-  <tr>
-    <td><%= @admin_author.name %></td>
-  </tr>
-
-  </tbody>
-</table>
+<div class="info">
+  <div class="head-img">
+    <%= image_tag @login_author.avatar_url("thumb") if @login_author.avatar %>
+  </div>
+  <div class="blog-info">
+    <div class="author-name">
+      <%= @admin_author.name %>
+    </div>
+    <div class="detail-info">
+      <ul>
+        <li>
+          <%= link_to admin_articles_path do %>
+            博文
+            <%= @login_author.articles.count %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
