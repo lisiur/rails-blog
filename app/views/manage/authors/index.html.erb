@@ -11,19 +11,17 @@
   </thead>
 
   <tbody>
-    <% @admin_authors.each do |admin_author| %>
+    <% @manage_authors.each do |manage_author| %>
       <tr>
-        <td><%= admin_author.name %></td>
-        <td><%= admin_author.email %></td>
-        <td><%= DateTime.parse(admin_author.created_at.to_s).strftime('%Y-%m-%d') %></td>
-        <td><%= link_to '显示详情', manage_author_path(admin_author) %></td>
-        <td><%= link_to '编辑', edit_manage_author_path(admin_author) %></td>
-        <td><%= link_to '删除', manage_author_path(admin_author), method: :delete, data: { confirm: '确定删除?' } %></td>
+        <td><%= manage_author.name %></td>
+        <td><%= manage_author.email %></td>
+        <td><%= DateTime.parse(manage_author.created_at.to_s).strftime('%Y-%m-%d') %></td>
+        <td><%= link_to '显示详情', manage_author_path(manage_author) %></td>
+        <td><%= link_to '编辑', edit_manage_author_path(manage_author) %></td>
+        <td><%= link_to '删除', manage_author_path(manage_author), method: :delete, data: { confirm: '确定删除?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-

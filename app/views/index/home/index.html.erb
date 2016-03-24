@@ -8,6 +8,10 @@
         <div class="article-date">
           <%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %>
         </div>
+        <div class="article-author">
+          <%= image_tag(a.author.avatar_url(:thumb)) if a.author&&a.author.avatar? %>
+          <span><%= a.author.name if a.author %></span>
+        </div>
         <div class="article-author"></div>
 
       </div>

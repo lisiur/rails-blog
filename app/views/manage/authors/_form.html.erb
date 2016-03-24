@@ -1,5 +1,10 @@
-<%= form_for @admin_author, url: manage_authors_path,method: :post do |f| %>
-  <%= form_errors @admin_author %>
+<% if @manage_author.id %>
+<% url = manage_author_path %>
+<% else %>
+<% url = manage_authors_path %>
+<% end %>
+<%= form_for(@manage_author,as: :manage_author, url:url) do |f| %>
+  <%= form_errors @manage_author %>
 
 
     <div class="form-group">

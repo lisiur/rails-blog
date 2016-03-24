@@ -156,6 +156,26 @@ body{
         margin-top: 20px;
         border-radius: 5px;
       }
+      .article-author{
+        margin:0 auto;
+        margin-top: 20px;
+        width:100px;
+        border-radius: 25px;
+        background-color: #DEE8EF;
+        img{
+          display: inline-block;
+          float:left;
+          width:25px;
+          height:25px;
+          border-radius: 50%;
+        }
+        span{
+          color:#90A1AC;
+          display: inline-block;
+          font-size: 13px;
+          line-height: 25px;
+        }
+      }
     }
     .article-main{
       float:left;
