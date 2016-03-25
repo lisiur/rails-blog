@@ -17,7 +17,8 @@ class Admin::Article < ActiveRecord::Base
   end
 
   def set_abstract
-    self.abstract = self.content[0..300].gsub(/(# )|(```([A-Za-z]*))/,"")
+    labels = /(```[A-Za-z]*)|(``)|(`)|(^>+)|(\*\*)|(\[\^\d\])|(#+ )/
+    self.abstract = self.content[0..300].gsub(labels,"")
   end
 
   def state
