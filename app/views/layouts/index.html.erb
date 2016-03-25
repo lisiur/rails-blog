@@ -11,7 +11,9 @@
 <div id="header">
   <nav id="nav-top">
     <div id="logo">
-      <img src="/assets/logo.png"/>
+      <%= link_to '/' do %>
+        <img src="/assets/logo.png"/>
+      <% end %>
     </div>
     <div id="search">
       <form class="" role="search">
@@ -32,13 +34,16 @@
     </div>
 
     <div id="menu-login">
-      <% if session[:author_id] %>
-      <a href=<%= admin_path %>>
+      <% if @login_author %>
+        <%= link_to admin_path do %>
+          <span class="glyphicon glyphicon-dashboard"></span>
+        <% end %>
       <% else %>
-      <a href=<%= admin_login_path %>>
+        <%= link_to admin_login_path do %>
+          <span class="glyphicon glyphicon-log-in"></span>
+        <% end %>
       <% end %>
-        <img src="/assets/logo.png"/>
-      </a>
+
     </div>
   </nav>
 </div>

@@ -33,16 +33,17 @@ body{
     #logo{
       z-index: 1;
       cursor: pointer;
-      left:2px;
+      left:5px;
+      top:5px;
       position: absolute;
       img{
-        height:60px;
-        width:80px;
+        height:50px;
+        width:60px;
       }
     }
     #search{
       z-index: 2;
-      left:75px;
+      left:100px;
       position: absolute;
       width:auto;
       height:60px;
@@ -80,6 +81,7 @@ body{
           font-weight: bold;
         }
         span{
+          color: #90A1AC;
           display: inline-block;
           padding-left: 20px;
         }
@@ -90,21 +92,16 @@ body{
 
     #menu-login{
       z-index: 1;
-      cursor: pointer;
       position: absolute;
-      top:0;
-      right:0px;
-      img{
-        height:60px;
-        width:80px;
-      }
-      i{
-        display: inline;
-        font-size: 10px;
-        margin-left: -10px;
+      right:15px;
+      top:12px;
+      cursor: pointer;
+      span{
+        font-size: 30px;
+        color:#90A1AC;
       }
       &:hover{
-        background-color: #dddddd;
+
       }
     }
   }
