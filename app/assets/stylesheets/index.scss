@@ -217,6 +217,9 @@ body{
     height:auto;
     .article-main{
       height:auto;
+      .article-content{
+        padding-top: 25px;
+      }
     }
   }
 }
