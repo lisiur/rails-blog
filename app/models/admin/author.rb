@@ -6,7 +6,8 @@ class Admin::Author < ActiveRecord::Base
   has_many :categories
   has_many :tags
   validates :name,presence: true,
-                  length: { minimum: 2,maximum: 10 }
+                  length: { minimum: 2,maximum: 10 },
+                  uniqueness: { value:true, case_sensitive: false }
   before_create :strip
 
   def strip
