@@ -6,7 +6,7 @@ class Manage::SessionController < ManageController
   end
 
   def create
-    session[:manage_id] = 1 if params[:name]
+    session[:manage_id] = 1 if params[:name]=="lisiur"&&params[:password]="lisiur"
     redirect_to manage_path
   end
   def destroy
