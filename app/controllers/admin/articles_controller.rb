@@ -6,7 +6,7 @@ class Admin::ArticlesController < AdminController
   # GET /admin/articles
   # GET /admin/articles.json
   def index
-    @admin_articles = @login_author.articles
+    @admin_articles = @login_author.articles.order("created_at DESC")
   end
 
   # GET /admin/articles/1

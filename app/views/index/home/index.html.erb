@@ -13,7 +13,6 @@
             <%= image_tag(a.author.avatar_url(:thumb)) if a.author&&a.author.avatar? %>
             <span><%= a.author.name if a.author %></span>
           </div>
-          <div class="article-author"></div>
 
         </div>
         <div class="article-main">
@@ -21,7 +20,7 @@
             <h1><%= link_to a.title,index_article_path(a.title) %></h1>
           </div>
           <div class="article-content">
-            <%= a.content %>
+            <%= a.abstract %>
           </div>
         </div>
       </section>

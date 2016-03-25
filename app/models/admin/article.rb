@@ -10,11 +10,15 @@ class Admin::Article < ActiveRecord::Base
 
   validates :title,presence:true,uniqueness:true
   before_create :strip
+  before_save :set_abstract
 
   def strip
     self.title = self.title.lstrip
   end
 
+  def set_abstract
+    self.abstract = self.content[0..300].gsub(/(# )|(```([A-Za-z]*))/,"")
+  end
 
   def state
     return "已发布" if status == 1
