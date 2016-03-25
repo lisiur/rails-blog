@@ -8,4 +8,10 @@ class Admin::Category < ActiveRecord::Base
   has_and_belongs_to_many :articles
 
   validates :name, presence:true,uniqueness: true
+
+  before_create :strip
+
+  def strip
+    self.name = self.name.lstrip
+  end
 end

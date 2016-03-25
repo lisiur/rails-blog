@@ -23,13 +23,19 @@
     </div>
     <div id="admin">
       <% @all_article_types.each do |t| %>
-          <span class="glyphicon glyphicon-<%= t.glyphicon %>"></span>
+          <%= link_to "/article-type/#{t.name}" do %>
+            <span class="glyphicon glyphicon-<%= t.glyphicon %>"></span>
+          <% end %>
       <% end %>
 
     </div>
 
     <div id="menu-login">
+      <% if session[:author_id] %>
+      <a href=<%= admin_path %>>
+      <% else %>
       <a href=<%= admin_login_path %>>
+      <% end %>
         <img src="/assets/logo.png"/>
       </a>
     </div>

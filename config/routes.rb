@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   end
 
   root 'index/home#index'
-  get '/u/:name' => "index/home#index"
-
+  get '/u/:name' => "index/home#user"
+  get '/tag/:name' => "index/home#tag"
+  get '/category/:name' => 'index/home#category'
+  get '/search/:keywords' => 'index/home#search'
+  get '/article-type/:name' => 'index/home#article_type'
   namespace :manage do
     get '/' => "index#index"
     get 'login' => 'session#new'

@@ -7,4 +7,9 @@ class Admin::Author < ActiveRecord::Base
   has_many :tags
   validates :name,presence: true,
                   length: { minimum: 2,maximum: 10 }
+  before_create :strip
+
+  def strip
+    self.name = self.name.lstrip
+  end
 end

@@ -8,6 +8,13 @@ class Admin::Article < ActiveRecord::Base
   attr_accessor :tag_names
   attr_accessor :category_ids
 
+  validates :title,presence:true,uniqueness:true
+  before_create :strip
+
+  def strip
+    self.title = self.title.lstrip
+  end
+
 
   def state
     return "已发布" if status == 1
