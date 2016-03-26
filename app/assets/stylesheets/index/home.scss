@@ -1,3 +1,17 @@
 // Place all the styles related to the index::home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// 多说
+.ds-thread{
+  width:80%;
+  margin-left: 7%;
+
+  #ds-reset{
+    width:76%;
+    margin-left: 22%;
+    border:1px solid #DEE8EF;
+    background-color: white;
+    border-top: none;
+    padding:20px;
+  }
+}
