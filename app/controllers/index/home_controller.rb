@@ -5,6 +5,7 @@ class Index::HomeController < IndexController
   end
   def show
     @article = Admin::Article.find_by_title(params[:title])
+    @article.update(watch_count:@article.watch_count+1)
   end
 
   def tag

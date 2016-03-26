@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325080531) do
+ActiveRecord::Schema.define(version: 20160326054545) do
 
   create_table "admin_archives", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160325080531) do
     t.integer  "article_type_id", limit: 4
     t.integer  "author_id",       limit: 4
     t.text     "abstract",        limit: 65535
+    t.integer  "watch_count",     limit: 4,     default: 0
   end
 
   create_table "admin_articles_categories", id: false, force: :cascade do |t|

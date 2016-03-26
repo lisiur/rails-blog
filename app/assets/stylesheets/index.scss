@@ -23,6 +23,7 @@ body{
 }
 #header{
   nav#nav-top{
+    z-index: 99;
     position:fixed;
     top:0;
     left:0;
@@ -31,7 +32,7 @@ body{
     border-bottom: 1px solid #dddddd;
     height:60px;
     #logo{
-      z-index: 1;
+      // z-index: 1;
       cursor: pointer;
       left:5px;
       top:5px;
@@ -42,7 +43,7 @@ body{
       }
     }
     #search{
-      z-index: 2;
+      // z-index: 2;
       left:100px;
       position: absolute;
       width:auto;
@@ -68,7 +69,7 @@ body{
       }
     }
     #admin{
-      z-index: 0;
+      // z-index: 0;
       position: relative;
       width:auto;
       height:60px;
@@ -91,7 +92,7 @@ body{
     }
 
     #menu-login{
-      z-index: 1;
+      // z-index: 1;
       position: absolute;
       right:15px;
       top:12px;
@@ -109,8 +110,6 @@ body{
 
 #bodyer{
   padding-top: 40px;
-  width:auto;
-  height:auto;
   .line{
     position: fixed;
     left:50px;
@@ -129,10 +128,13 @@ body{
   .article{
     z-index: 9;
     width:80%;
-    min-height: 200px;
     margin-top: 40px;
     margin-left: 7%;
-
+    &:after{
+      content:"";
+      display: block;
+      clear: both;
+    }
     .time-line{
       z-index: 9;
       text-align: center;
@@ -188,16 +190,36 @@ body{
       }
     }
     .article-main{
+      position: relative;
       float:left;
       width:80%;
       height:auto;
-      min-height: 200px;
-      padding-left: 20px;
-      padding-right: 20px;
+      min-height: 165px;
+      padding-left: 30px;
+      padding-right: 30px;
       padding-bottom: 20px;
       // border-radius: 20px;
       border:1px solid #DEE8EF;
       background-color: white;
+      &:before{
+        content: '';
+        position: absolute;
+        left: -.6em;
+        top: 28px;
+        width: 1em;
+        height: 1em;
+        /* transform: rotate(45deg); */
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transition: background .1s linear;
+        -moz-transition: background .1s linear;
+        transition: background .1s linear;
+        background-color: #FFF;
+        border-left: 1px solid #dee8ef;
+        border-bottom: 1px solid #dee8ef;
+        z-index: 2;
+      }
       .article-title{
         text-align: left;
         h1{
@@ -209,6 +231,22 @@ body{
       .article-content{
         color:#666666;
         font-size: 16px;
+        line-height:20pt;
+        padding-bottom: 30px;
+      }
+      .article-footer{
+        position: absolute;
+        bottom:10px;
+        height:auto;
+        font-size: 14px;
+        color:#7F8287;
+        .footer-item{
+          float: left;
+          margin-right: 60px;
+          a{
+            color:#7F8287;
+          }
+        }
       }
     }
   }

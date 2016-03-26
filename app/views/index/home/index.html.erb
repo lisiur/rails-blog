@@ -13,7 +13,6 @@
             <%= image_tag(a.author.avatar_url(:thumb)) if a.author&&a.author.avatar? %>
             <span><%= a.author.name if a.author %></span>
           </div>
-
         </div>
         <div class="article-main">
           <div class="article-title">
@@ -21,6 +20,32 @@
           </div>
           <div class="article-content">
             <%= a.abstract %>
+          </div>
+          <div class="article-footer">
+            <div class="footer-item">
+              <a href="<%= index_article_path(a.title)  %>">
+                <i class="glyphicon glyphicon-eye-open"></i>
+                <span><%= a.watch_count %><span>
+              </a>
+            </div>
+            <div class="footer-item">
+              <a href="<%= index_article_path(a.title)+"#comment" %>">
+                <i class="glyphicon glyphicon-comment"></i>
+                <span class="ds-thread-count" id="<%= "comment#{a.id}" %>">
+                  <script type="text/javascript">
+                  var duoshuoQuery = {short_name:"lisiur",id:<%= a.id %>};
+                  (function() {
+                    var url = "http://api.duoshuo.com/threads/counts.jsonp?short_name="+duoshuoQuery.short_name+"&threads="+duoshuoQuery.id+ "&callback=?"
+                    $.getJSON(url,function(data){
+                      comment_count = data.response["<%= a.id %>"].comments;
+                      currentEleId = "#comment"+<%= a.id %>
+                      $(currentEleId).append(comment_count);
+                    });
+                  })();
+                  </script>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
