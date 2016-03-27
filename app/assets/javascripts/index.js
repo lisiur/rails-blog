@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
   if($(".time-line")[0] != undefined){
-    left = $(".time-line")[0].offsetLeft
+    left = $(".time-line")[0].offsetLeft;
     width = $(".time-line").width();
     result = left+width/2;
     $(".line").css("left",result);
@@ -13,5 +13,9 @@ $(document).ready(function(){
         result = left+width/2;
         $(".line").css("left",result);
     });
+  }
+  footer = $("#footer")[0];
+  if((footer.offsetTop + footer.clientHeight) < window.outerHeight){
+    $(footer).css("position" , "fixed");
   }
 })
