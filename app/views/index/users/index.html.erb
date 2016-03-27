@@ -1,25 +1,55 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Index Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @index_users.each do |index_user| %>
-      <tr>
-        <td><%= link_to 'Show', index_user %></td>
-        <td><%= link_to 'Edit', edit_index_user_path(index_user) %></td>
-        <td><%= link_to 'Destroy', index_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_index_user_path %>
+<div class="line"></div>
+<% if !@all_articles.nil? %>
+  <% @all_articles.each do |a| %>
+      <section class="article">
+        <div class="time-line">
+          <div class="article-type">
+            <span class="glyphicon glyphicon-<%= a.article_type.glyphicon %>"></span>
+          </div>
+          <div class="article-date">
+            <%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %>
+          </div>
+          <div class="article-author">
+            <%= image_tag(a.author.avatar_url(:thumb)) if a.author&&a.author.avatar? %>
+            <span><%= a.author.name if a.author %></span>
+          </div>
+        </div>
+        <div class="article-main">
+          <div class="article-title">
+            <h1><%= link_to a.title,index_article_path(a.title) %></h1>
+          </div>
+          <div class="article-content">
+            <%= a.abstract %>
+          </div>
+          <div class="article-footer">
+            <div class="footer-item">
+              <a href="<%= index_article_path(a.title)  %>">
+                <i class="glyphicon glyphicon-eye-open"></i>
+                <span><%= a.watch_count %><span>
+              </a>
+            </div>
+            <div class="footer-item">
+              <a href="<%= index_article_path(a.title)+"#comment" %>">
+                <i class="glyphicon glyphicon-comment"></i>
+                <span class="ds-thread-count" id="<%= "comment#{a.id}" %>">
+                  <script type="text/javascript">
+                  var duoshuoQuery = {short_name:"lisiur",id:<%= a.id %>};
+                  (function() {
+                    var url = "http://api.duoshuo.com/threads/counts.jsonp?short_name="+duoshuoQuery.short_name+"&threads="+duoshuoQuery.id+ "&callback=?"
+                    $.getJSON(url,function(data){
+                      comment_count = data.response["<%= a.id %>"].comments;
+                      currentEleId = "#comment"+<%= a.id %>
+                      $(currentEleId).append(comment_count);
+                    });
+                  })();
+                  </script>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+  <% end %>
+<% else %>
+  <%= render html:'<div class="not-found">未找到相关文章！</div>'.html_safe %>
+<% end %>

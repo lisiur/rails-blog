@@ -77,8 +77,8 @@ class Admin::CategoriesController < AdminController
 
     def set_all_category
       @all_categories = []
-      if Admin::Category.where(supcategory_id: nil)
-        Admin::Category.where(supcategory_id: nil).each {|c| dfs(@all_categories,0,c)}
+      if @login_author.categories.where(supcategory_id: nil)
+        @login_author.categories.where(supcategory_id: nil).each {|c| dfs(@all_categories,0,c)}
       end
     end
 

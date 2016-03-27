@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // 多说
 .ds-thread{
-  width:80%;
+  width:100%;
   margin-left: 7%;
 
   #ds-reset{
@@ -14,4 +14,8 @@
     border-top: none;
     padding:20px;
   }
+}
+
+.main{
+  width: 80%;
 }

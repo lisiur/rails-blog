@@ -110,9 +110,15 @@ body{
 #bodyer{
   position: relative;
   padding-top: 40px;
+  margin-bottom: 50px;
+  .main{
+    float:left;
+    // width: 80%;
+  }
+
   .line{
     position: fixed;
-    left:50px;
+    left:0px;
     top:60px;
     bottom:0px;
     width:2px;
@@ -126,8 +132,9 @@ body{
   }
 
   .article{
+    float: left;
     z-index: 5;
-    width:80%;
+    width: 100%;
     margin-top: 40px;
     margin-left: 7%;
     &:after{
@@ -250,6 +257,7 @@ body{
       }
     }
   }
+
   #show-article{
     height:auto;
     .article-main{
@@ -261,5 +269,17 @@ body{
   }
 }
 #footer{
-
+  position: relative;
+  border-top: 1px solid #dddddd;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height:60px;
+  background-color: #ffffff;
+  color:#90A1AC;
+  font-size: 20px;
+  text-align: center;
+  p{
+    line-height: 60px;
+  }
 }

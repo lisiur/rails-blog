@@ -1,3 +1,53 @@
 // Place all the styles related to the index::users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.main{
+  width: 70%;
+}
+.side-nav{
+  position: fixed;
+  width:20%;
+  height:auto;
+  top:80px;
+  right:3%;
+  padding-left: 20px;
+  height:auto;
+  overflow: auto;
+  h2{
+    font-size: 20px;
+  }
+
+  .item{
+    margin-bottom: 20px;
+    // border:1px solid #DEE8EF;
+    // background: #FFF;
+    height: auto;
+    ul{
+      width:auto;
+    }
+    li{
+      width: auto;
+      height: 20px;
+      background-color: #90A1AC;
+      display: block;
+      margin: 2px;
+
+      border: 1px solid #CCC;
+      border-radius: 4px;
+      a,a:hover{
+        display: block;
+        width: auto;
+        color: #ffffff;
+        span{
+          display: block;
+          font-size: 15px;
+          line-height: 15px;
+          padding: 2px;
+        }
+      }
+    }
+    li.tag{
+      float: left;
+    }
+  }
+}

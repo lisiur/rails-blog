@@ -3,13 +3,12 @@ Rails.application.routes.draw do
   namespace :index do
     get 'home/index'
     get 'article/:title' => 'home#show',title: /[^\/]+/,as: :article
-    resources :users
   end
 
   root 'index/home#index'
-  get '/u/:name' => "index/home#user"
-  get '/tag/:name' => "index/home#tag"
-  get '/category/:name' => 'index/home#category'
+  get '/u/:user' => "index/users#index"
+  get '/u/:user/tag/:name' => "index/users#tag"
+  get '/u/:user/category/:name' => 'index/users#category'
   get '/search/:keywords' => 'index/home#search'
   get '/article-type/:name' => 'index/home#article_type'
   namespace :manage do

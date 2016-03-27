@@ -52,6 +52,39 @@
   <div class="main" id="main">
     <%= yield %>
   </div>
+  <div class="side-nav">
+    <h2>分类</h2>
+    <div class="item">
+
+      <ul>
+        <% @all_categories.each do |c| %>
+          <li>
+            <%= link_to "/u/#{@user.name}/category/#{c.name}" do %>
+              <span><%= ("&nbsp&nbsp"*c.level).html_safe %>
+              <%= "#{c.name}(#{c.articles.count})" %></span>
+            <% end %>
+          </li>
+        <% end %>
+        <div style="clear:both;"></div>
+      </ul>
+    </div>
+    <h2>标签</h2>
+    <div class="item">
+      <ul>
+        <% @all_tags.each do |t| %>
+          <li class="tag">
+            <%= link_to "/u/#{@user.name}/tag/#{t.name}" do %>
+              <span class=""><%= t.name %><span>
+            <% end %>
+          </li>
+        <% end %>
+        <div style="clear:both;"></div>
+      </ul>
+    </div>
+    <!-- <div class="item">
+      归档
+    </div> -->
+  </div>
   <div style="clear:both;"></div>
 </div>
 

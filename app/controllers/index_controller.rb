@@ -2,6 +2,7 @@ class IndexController < ApplicationController
   before_action :set_all_article_types
   before_action :set_login_author
 
+
   private
   def set_all_article_types
     @all_article_types = Admin::ArticleType.all
