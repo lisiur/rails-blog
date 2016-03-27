@@ -279,7 +279,8 @@ body{
   color:#90A1AC;
   font-size: 20px;
   text-align: center;
-  p{
-    line-height: 60px;
+  span{
+    display: block;
+    margin-top: 15px;
   }
 }
