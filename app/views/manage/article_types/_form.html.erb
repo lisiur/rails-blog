@@ -1,5 +1,10 @@
-<%= form_for @admin_article_type,url:manage_article_types_path do |f| %>
-    <%= form_errors(@admin_article_type) %>
+<% if @manage_article_type %>
+<% url = manage_article_type_path %>
+<% else %>
+<% url = manage_article_types_path %>
+<% end %>
+<%= form_for @manage_article_type,as: :manage_article_type,url:url do |f| %>
+    <%= form_errors(@manage_article_type) %>
 
     <div class="form-group">
       <%= f.text_field :name, class:"form-control",placeholder:"请输入类型名" %>
@@ -10,7 +15,7 @@
     </div>
     <!--<div class="form-group">-->
       <!--<%= f.label :avatar %>-->
-      <!--<%= image_tag(@admin_article_type.img_url(:thumb)) if @admin_article_type.img? %>-->
+      <!--<%= image_tag(@manage_article_type.img_url(:thumb)) if @manage_article_type.img? %>-->
       <!--<%= f.file_field :img %>-->
       <!--<%= f.hidden_field :img_cache %>-->
     <!--</div>-->

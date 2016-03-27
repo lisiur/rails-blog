@@ -11,15 +11,14 @@
   </thead>
 
   <tbody>
-    <% @admin_article_types.each do |admin_article_type| %>
+    <% @manage_article_types.each do |manage_article_type| %>
       <tr>
-        <td><%= admin_article_type.name %></td>
-        <td><span class="glyphicon glyphicon-<%= admin_article_type.glyphicon %>"></span></td>
-        <!--<td><%= image_tag admin_article_type.img_url(:thumb) if admin_article_type.img %></td>-->
-        <td><%= link_to '编辑', edit_manage_article_type_path(admin_article_type) %></td>
-        <td><%= link_to '删除', manage_article_type_path(admin_article_type), method: :delete, data: { confirm: '确定删除?' } %></td>
+        <td><%= manage_article_type.name %></td>
+        <td><span class="glyphicon glyphicon-<%= manage_article_type.glyphicon %>"></span></td>
+        <!--<td><%= image_tag manage_article_type.img_url(:thumb) if manage_article_type.img %></td>-->
+        <td><%= link_to '编辑', edit_manage_article_type_path(manage_article_type) %></td>
+        <td><%= link_to '删除', manage_article_type_path(manage_article_type), method: :delete, data: { confirm: '确定删除?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-

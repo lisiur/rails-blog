@@ -1,4 +1,4 @@
-json.array!(@admin_article_types) do |admin_article_type|
-  json.extract! admin_article_type, :id, :name, :img
-  json.url admin_article_type_url(admin_article_type, format: :json)
+json.array!(@manage_article_types) do |manage_article_type|
+  json.extract! manage_article_type, :id, :name, :img
+  json.url manage_article_type_url(manage_article_type, format: :json)
 end
