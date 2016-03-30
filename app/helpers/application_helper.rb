@@ -9,11 +9,14 @@ module ApplicationHelper
         :strikethrough =>true
     }
     markdown = Redcarpet::Markdown.new(HTMLwithCodeRay,options)
+    labels = /```[A-Za-z]+/
+    text = text.gsub(labels,"\r\n```")
     markdown.render(text).html_safe
   end
 
   class HTMLwithCodeRay < Redcarpet::Render::HTML
     def block_code(code, language)
+      language = "html" if language.nil?
       CodeRay.scan(code, language).div(:tab_width=>2)
     end
   end
