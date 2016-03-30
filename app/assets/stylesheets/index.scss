@@ -5,7 +5,7 @@
 @import "bootstrap";
 $primary-color: #f7f6f2;
 body{
-  // background-color: #F3F6F7;
+  background-color: #F3F6F7;
   a{
     text-decoration:none;
     &:hover{
@@ -28,7 +28,7 @@ body{
     top:0;
     left:0;
     right:0;
-    background-color: #ffffff;
+    background-color: #eee;
     border-bottom: 1px solid #dddddd;
     height:60px;
     #logo{
@@ -58,6 +58,7 @@ body{
           width:180px;
           height:30px;
           padding-left: 10px;
+          background-color: #f8f8f8;
           transition:width 0.5s;
           -moz-transition:width 0.5s; /* Firefox 4 */
           -webkit-transition:width 0.5s; /* Safari and Chrome */
@@ -205,13 +206,13 @@ body{
       padding-left: 30px;
       padding-right: 30px;
       padding-bottom: 20px;
-      // border-radius: 20px;
+      border-radius: 32px;
       border:1px solid #DEE8EF;
-      background-color: white;
+      background-color: #eee;
       &:before{
         content: '';
         position: absolute;
-        left: -.6em;
+        left: -.5em;
         top: 28px;
         width: 1em;
         height: 1em;
@@ -222,7 +223,7 @@ body{
         -webkit-transition: background .1s linear;
         -moz-transition: background .1s linear;
         transition: background .1s linear;
-        background-color: #FFF;
+        background-color: #eee;
         border-left: 1px solid #dee8ef;
         border-bottom: 1px solid #dee8ef;
         z-index: 2;
@@ -275,7 +276,7 @@ body{
   left: 0px;
   right: 0px;
   height:60px;
-  background-color: #ffffff;
+  background-color: #eee;
   color:#90A1AC;
   font-size: 20px;
   text-align: center;
@@ -285,19 +286,11 @@ body{
     color:#90A1AC;
   }
   span{
-    display: block;
-    margin-top: 12px;
+    // display: block;
+    // padding-top: 12px;
   }
 }
 
 #WebGL-output{
-  top:0px;
-  z-index: -10;
-  position: fixed;
-  margin: 0;
-  overflow: hidden;
-  filter:alpha(opacity=100);
-      -moz-opacity:0.1;
-      -khtml-opacity: 0.1;
-      opacity: 0.1;
+  
 }
