@@ -4,6 +4,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 $primary-color: #f7f6f2;
+$icon-color:green;
 body{
   background-color: #F3F6F7;
   a{
@@ -82,7 +83,7 @@ body{
           font-weight: bold;
         }
         span{
-          color: #90A1AC;
+          color: $icon-color;
           display: inline-block;
           padding-left: 20px;
         }
@@ -228,16 +229,35 @@ body{
         border-bottom: 1px solid #dee8ef;
         z-index: 2;
       }
+      &:hover{
+        &:after{
+          content: '';
+          position: absolute;
+          left: 15px;
+          top: 20px;
+          width: 5px;
+          height: 30px;
+          background-color:green;
+        }
+      }
+
       .article-title{
         text-align: left;
         h1{
           font-size: 28px;
           font-weight: bold;
-          color:#22A3DF;
+          color:$icon-color;
+          a{
+            color:#777;
+            &:hover{
+              color: $icon-color;
+            }
+          }
         }
+
       }
       .article-content{
-        color:#666666;
+        color:#888;
         font-size: 16px;
         line-height:20pt;
         padding-bottom: 30px;
@@ -265,6 +285,7 @@ body{
       height:auto;
       .article-content{
         padding-top: 25px;
+        color: #555;
       }
     }
   }
@@ -292,5 +313,5 @@ body{
 }
 
 #WebGL-output{
-  
+
 }
