@@ -23,6 +23,17 @@ class Admin::ArticlesController < AdminController
   def edit
   end
 
+  def preview
+    @preview_text = params[:text]
+    respond_to do |format|
+      if @preview_text
+        format.js {}
+        format.json { render :edit, status: :previewed, location: @preview_text }
+      else
+        format.json { render json: @preview_text, status: :unprocessable_entity }
+      end
+    end
+  end
   # POST /admin/articles
   # POST /admin/articles.json
   def create

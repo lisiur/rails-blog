@@ -100,7 +100,7 @@ body{
       cursor: pointer;
       span{
         font-size: 30px;
-        color:#90A1AC;
+        color:green;
       }
       &:hover{
 
@@ -156,7 +156,7 @@ body{
         width:60px;
         height:60px;
         border-radius: 100%;
-        background-color: #90A1AC;
+        background-color: green;
         span{
           padding-top: 18px;
           color:white;
@@ -170,7 +170,7 @@ body{
         height:25px;
         font-size: 13px;
         padding-top: 4px;
-        color:#90A1AC;
+        color:green;
         background-color: #DEE8EF;
         margin-top: 20px;
         border-radius: 5px;
@@ -191,7 +191,7 @@ body{
           border-radius: 50%;
         }
         span{
-          color:#90A1AC;
+          color:green;
           display: inline-block;
           font-size: 13px;
           line-height: 25px;
@@ -230,17 +230,11 @@ body{
         z-index: 2;
       }
       &:hover{
-        &:after{
-          content: '';
-          position: absolute;
-          left: 15px;
-          top: 20px;
-          width: 5px;
-          height: 30px;
-          background-color:green;
+        .article-title a{
+          color: $icon-color;
         }
-      }
 
+      }
       .article-title{
         text-align: left;
         h1{
@@ -250,7 +244,15 @@ body{
           a{
             color:#777;
             &:hover{
-              color: $icon-color;
+              &:after{
+                content: '';
+                position: absolute;
+                left: 15px;
+                top: 20px;
+                width: 5px;
+                height: 30px;
+                background-color:green;
+              }
             }
           }
         }
@@ -310,8 +312,4 @@ body{
     // display: block;
     // padding-top: 12px;
   }
-}
-
-#WebGL-output{
-
 }

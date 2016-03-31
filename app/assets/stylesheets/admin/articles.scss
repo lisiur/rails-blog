@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .main-form{
+  position: relative;
   float:left;
   width:70%;
   margin-right: 5%;
@@ -9,6 +10,42 @@
     max-width: 100%;
     min-width: 100%;
     min-height: 450px;
+    max-height: 450px;
+  }
+  .md-tools-bar{
+    position: relative;
+    height:38px;
+    width:100%;
+    .md-tools-group{
+      margin-top: 5px;
+      position: relative;
+      width:auto;
+      height:28px;
+      span{
+        display: inline-block;
+        font-size: 20px;
+        line-height: 25px;
+      }
+    }
+    .right{
+      float:right;
+    }
+    .left{
+      float:left;
+    }
+  }
+  #side-preview{
+    display: none;
+    position: absolute;
+    top:88px;
+    left:0px;
+    width:100%;
+    height:450px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px;
+    overflow: auto;
   }
 }
 .related-form{
@@ -71,5 +108,12 @@
       background-color: #4c4c4c;
 
     }
+  }
+}
+//index
+.article-index{
+  font-size: 14px;
+  .article-title{
+    font-size: 16px;
   }
 }

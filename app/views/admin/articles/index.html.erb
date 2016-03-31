@@ -16,21 +16,20 @@
 
   <tbody>
     <% @admin_articles.each do |admin_article| %>
-      <tr>
-        <td><%= admin_article.title %></td>
-        <td>
+      <tr class="article-index">
+        <td class="article-title"><%= link_to admin_article.title[0..20]+(admin_article.title.length>20?'...':''), edit_admin_article_path(admin_article),title:admin_article.title %></td>
+        <td class="article-category">
           <% admin_article.categories.each do |c| %>
             <%= link_to c.name,admin_categories_path+"?#{c.name}" %>
           <% end %>
         </td>
-        <td>
+        <td class="article-tag">
           <% admin_article.tags.each do |t| %>
               <%= link_to t.name,admin_tags_path+"?#{t.name}" %>
           <% end %>
         </td>
-        <td><%= admin_article.created_at %></td>
-        <td><%= admin_article.state %></td>
-        <td><%= link_to '编辑', edit_admin_article_path(admin_article) %></td>
+        <td class="article-created_at"><%= DateTime.parse(admin_article.created_at.to_s).strftime('%Y-%m-%d') %></td>
+        <td class="article-state"><%= admin_article.state %></td>
         <td><%= link_to '删除', admin_article, method: :delete, data: { confirm: '确定删除?' } %></td>
       </tr>
     <% end %>

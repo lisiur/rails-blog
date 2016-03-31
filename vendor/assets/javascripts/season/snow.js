@@ -11,9 +11,9 @@ function init() {
       'margin': 0,
       'overflow': 'hidden',
       'filter':'alpha(opacity=100)',
-      '-moz-opacity':'0.2',
-      '-khtml-opacity': '0.2',
-      'opacity': '0.2'
+      '-moz-opacity':'0.4',
+      '-khtml-opacity': '0.4',
+      'opacity': '0.4'
     };
     $("#WebGL-output").css(styleForOutput);
    // var stats = initStats();

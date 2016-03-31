@@ -7,9 +7,17 @@
           <%= f.text_field :title, class:"form-control",placeholder:"请输入标题" %>
         </div>
 
+        <section class="md-tools-bar">
+          <div class="md-tools-group right">
+            <span id="tool-preview" class="glyphicon glyphicon-eye-open"></span>
+          </div>
+
+        </section>
+
         <div class="form-group">
-          <%= f.text_area :content,class:"form-control",placeholder:"支持Markdown语法" %>
+          <%= f.text_area :content,id:"preview_text",class:"form-control",placeholder:"支持Markdown语法" %>
         </div>
+        <div id="side-preview"></div>
 
 
         <div class="form-group action">

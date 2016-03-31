@@ -31,4 +31,23 @@ $("document").ready(function(){
     $(document).on("click",".glyphicon-remove",function(event){
         $(this).parent("li").remove();
     })
+
+    $(document).on("click","#tool-preview",function(event){
+      preview_text = $("#preview_text").val();
+      $.post("/admin/mdtools/preview",
+      {
+        text:preview_text
+      },function(data,status){
+        if($("#tool-preview").hasClass("glyphicon-eye-open")){
+          $("#tool-preview").removeClass("glyphicon glyphicon-eye-open");
+          $("#tool-preview").addClass("glyphicon glyphicon-eye-close");
+          $("#side-preview").slideDown("fast");
+        }else{
+          $("#tool-preview").removeClass("glyphicon glyphicon-eye-close");
+          $("#tool-preview").addClass("glyphicon glyphicon-eye-open");
+          $("#side-preview").slideUp("fast");
+        }
+
+      })
+    })
 })

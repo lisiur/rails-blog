@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     resources :authors,only:[:index,:edit,:update,:show]
     get 'repassword' => 'authors#repassword'
     post 'repassword' => 'authors#update_password'
+    post 'mdtools/preview' => 'mdtools#preview'
   end
 
 end
