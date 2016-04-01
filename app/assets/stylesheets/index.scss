@@ -281,17 +281,25 @@ body{
       }
     }
   }
-
   #show-article{
     height:auto;
+    .time-line{
+      margin-left: 10%;
+    }
     .article-main{
       height:auto;
+      width:65%;
       .article-content{
         padding-top: 25px;
         color: #555;
+        img{
+          width:100%;
+        }
+
       }
     }
   }
+
   .pagination-wrap{
     float:left;
     margin: 20px 0 10px 0;

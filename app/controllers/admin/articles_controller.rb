@@ -114,7 +114,7 @@ class Admin::ArticlesController < AdminController
     @admin_article.category_ids = params["admin_article"]["category_ids"]
     archive = @login_author.archives.where({year:Time.now.year,month:Time.now.month})
     archive = Admin::Archive.create(year:Time.now.year,month:Time.now.month,author_id:@login_author.id) if archive.empty?
-    @admin_article.archive_id = archive.first.id
+    @admin_article.archive_id = @login_author.archives.first.id
     @admin_article.add_categories
     @admin_article.add_tags(@login_author.id)
   end
