@@ -61,7 +61,7 @@
 <%= javascript_include_tag 'index' %>
 <%= javascript_include_tag params[:controller] %>
 
-<%= javascript_include_tag 'season/snow' %>
+<%= javascript_include_tag "season/#{@weather}" %>
 </body>
 
 </html>
