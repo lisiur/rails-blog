@@ -56,6 +56,8 @@ class IndexController < ApplicationController
       end
       weather = JSON.parse(response_weather.body)["retData"]["weather"]
     end
+    @true_ip = ip
+    @true_city = city_name
     @true_weather = weather
     if weather_list[weather].nil?
       @weather = 'snow'
