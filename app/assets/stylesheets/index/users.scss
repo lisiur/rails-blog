@@ -2,14 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .main{
-  width: 70%;
+  width: 80%;
+  .article{
+    width: 95% !important;
+    padding-right: 0px !important;
+  }
+}
+.pagination-wrap{
+  margin-left: 12% !important;
 }
 .side-nav{
   position: fixed;
   width:20%;
   height:auto;
   top:80px;
-  right:3%;
+  right:5%;
   padding-left: 20px;
   height:auto;
   overflow: auto;

@@ -55,3 +55,6 @@
 <% else %>
   <%= render html:'<div class="not-found">未找到相关文章！</div>'.html_safe %>
 <% end %>
+<div class="pagination-wrap">
+  <%= paginate @all_articles %>
+</div>

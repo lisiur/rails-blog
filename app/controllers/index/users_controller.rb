@@ -9,19 +9,19 @@ class Index::UsersController < IndexController
 
   def tag
     tag = Admin::Tag.find_by_name(params[:name])
-    @all_articles = tag.articles if tag
+    @all_articles = tag.articles.page(params[:page]).per(8) if tag
     render 'index'
   end
 
   def category
     category = Admin::Category.find_by_name(params[:name])
-    @all_articles = category.articles if category
+    @all_articles = category.articles.page(params[:page]).per(8) if category
     render 'index'
   end
   private
   def set_side_nav
     @user = Admin::Author.find_by_name(params[:user])
-    @all_articles = @user.articles.order("created_at DESC") if @user
+    @all_articles = @user.articles.order("created_at DESC").page(params[:page]).per(8) if @user
     @all_tags = @user.tags if @user
     @all_archives = @user.archives if @user
   end
