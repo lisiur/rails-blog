@@ -13,6 +13,10 @@ class Index::HomeController < IndexController
     render 'index'
   end
   def search
-    render 'index'
+    keywords = params[:keywords]
+    @all_articles = Admin::Article.where("title LIKE ?","%#{keywords}%").order("created_at DESC") unless keywords.blank?
+    @all_categories = Admin::Category.where("name LIKE ?","%#{keywords}%").order("created_at DESC") unless keywords.blank?
+    @all_tags = Admin::Tag.where("name LIKE ?","%#{keywords}%").order("created_at DESC") unless keywords.blank?
+    @all_authors = Admin::Author.where("name LIKE ?","%#{keywords}%").order("created_at DESC") unless keywords.blank?
   end
 end

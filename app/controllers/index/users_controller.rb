@@ -18,6 +18,14 @@ class Index::UsersController < IndexController
     @all_articles = category.articles.page(params[:page]).per(8) if category
     render 'index'
   end
+
+  def search
+    keywords = params[:keywords]
+    @search_articles = @user.articles.where("title LIKE ?","%#{keywords}%").order("created_at DESC") if @user&&!keywords.blank?
+    @search_categories = @user.categories.where("name LIKE ?","%#{keywords}%").order("created_at DESC") if @user&&!keywords.blank?
+    @search_tags = @user.tags.where("name LIKE ?","%#{keywords}%").order("created_at DESC") if @user&&!keywords.blank?
+  end
+
   private
   def set_side_nav
     @user = Admin::Author.find_by_name(params[:user])

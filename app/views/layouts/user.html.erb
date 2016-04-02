@@ -16,12 +16,13 @@
       <% end %>
     </div>
     <div id="search">
-      <form class="" role="search">
+      <%= form_tag "/search/#{@user.name}" do %>
         <div class="">
-          <input type="text" class="" placeholder="Search...">
+          <!-- <input type="text" class="" placeholder="Search..."> -->
+          <%= text_field_tag :keywords ,nil,class:"", placeholder:"Search..." %>
         </div>
         <button type="submit" class="hidden">Submit</button>
-      </form>
+      <% end %>
     </div>
     <div id="admin">
       <% @all_article_types.each do |t| %>

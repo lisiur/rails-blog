@@ -19,3 +19,41 @@
 .main{
   width: 100%;
 }
+.search-result{
+  position: fixed;
+  top:60px;
+  bottom:80px;
+  width:100%;
+  font-size: 20px;
+  a,a:hover{
+    color: black;
+    border-bottom-color: #EEEEEE;
+  }
+  ul.nav{
+    margin:20px 0px 0px 20px;
+    width:90%;
+    li.active{
+      a,a:hover,a:focus{
+        border-bottom-color: #EEEEEE;
+        background-color: #EEEEEE;
+      }
+    }
+  }
+  .tab-content{
+    padding-top: 10px;
+    width:90%;
+    height:-moz-calc(100% - 80px );
+  	height:-webkit-calc(100% - 80px );
+  	height: calc(100% - 80px );
+    margin:0px 0px 0px 20px;
+    background-color: #EEEEEE;
+    a{
+      display: block;
+      margin-left: 20px;
+      margin-bottom: 10px;
+      &:hover{
+        color:green;
+      }
+    }
+  }
+}

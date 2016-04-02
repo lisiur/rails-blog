@@ -34,14 +34,17 @@ class IndexController < ApplicationController
       faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
     end
 
-    ip = '112.80.186.74'
     response_city = conn.get do |req|
       req.url '/apistore/iplookupservice/iplookup',:ip => ip
       req.headers['apikey'] = api_key
       req.options.timeout = 5           # open/read timeout in seconds
       req.options.open_timeout = 2      # connection open timeout in seconds
     end
-    city_name = JSON.parse(response_city.body)['retData']["district"]
+    begin
+      city_name = JSON.parse(response_city.body)['retData']["district"]
+    rescue
+      city_name = ''
+    end
 
     # response_city_code = conn.get do |req|
     #   req.url '/apistore/weatherservice/cityname',:cityname => city_name
@@ -51,18 +54,22 @@ class IndexController < ApplicationController
     # end
     # city_code = JSON.parse(response_city.body)["retData"][0]['area_id']
 
-    if city_name
-      response_weather = conn.get do |req|
-        req.url '/apistore/weatherservice/cityname',:cityname => city_name
-        req.headers['apikey'] = api_key
-        req.options.timeout = 5           # open/read timeout in seconds
-        req.options.open_timeout = 2      # connection open timeout in seconds
-      end
-      weather = JSON.parse(response_weather.body)["retData"]["weather"]
+    response_weather = conn.get do |req|
+      req.url '/apistore/weatherservice/cityname',:cityname => city_name
+      req.headers['apikey'] = api_key
+      req.options.timeout = 5           # open/read timeout in seconds
+      req.options.open_timeout = 2      # connection open timeout in seconds
     end
+    begin
+      weather = JSON.parse(response_weather.body)["retData"]["weather"]
+    rescue
+      weather = 'snow' # 默认天气
+    end
+
     @true_ip = ip
     @true_city = city_name
     @true_weather = weather
+    
     if weather_list[weather].nil?
       @weather = 'snow'
     else

@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get '/u/:user' => "index/users#index"
   get '/u/:user/tag/:name' => "index/users#tag"
   get '/u/:user/category/:name' => 'index/users#category'
-  get '/search/:keywords' => 'index/home#search'
+  post '/search' => 'index/home#search'
+  post '/search/:user' => 'index/users#search'
   get '/article-type/:name' => 'index/home#article_type'
   namespace :manage do
     get '/' => "index#index"
