@@ -34,6 +34,7 @@ class IndexController < ApplicationController
       faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
     end
 
+    # ip = "112.80.186.74"
     response_city = conn.get do |req|
       req.url '/apistore/iplookupservice/iplookup',:ip => ip
       req.headers['apikey'] = api_key
@@ -63,17 +64,17 @@ class IndexController < ApplicationController
     begin
       weather = JSON.parse(response_weather.body)["retData"]["weather"]
     rescue
-      weather = 'snow' # 默认天气
+      weather = nil
     end
 
     @true_ip = ip
     @true_city = city_name
     @true_weather = weather
-    
-    if weather_list[weather].nil?
-      @weather = 'snow'
-    else
-      @weather = weather_list[weather]
+
+    if !weather.nil?
+      @weather = 'rain' if weather.include?("雨")
+      @weather = 'snow' if weather.include?("雪")
     end
+    @weather = 'snow' if @weather.nil?
   end
 end
