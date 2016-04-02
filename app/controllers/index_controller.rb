@@ -17,10 +17,12 @@ class IndexController < ApplicationController
   def set_webgl
     weather_list = {
       "晴" => 'rain',
-      "多云" => 'snow',
+      "多云" => 'rain',
       "雪" => 'snow',
       "雨" => 'rain',
-      '小雨' => 'rain'
+      '小雨' => 'rain',
+      '中雨' => 'rain',
+      '大雨' => 'rain'
     }
     api_key  = "732b40aadc7409a1349780c6fb7a55f3"
     uri = 'http://apis.baidu.com'
@@ -32,24 +34,26 @@ class IndexController < ApplicationController
       faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
     end
 
+    ip = '112.80.186.74'
     response_city = conn.get do |req|
       req.url '/apistore/iplookupservice/iplookup',:ip => ip
       req.headers['apikey'] = api_key
       req.options.timeout = 5           # open/read timeout in seconds
       req.options.open_timeout = 2      # connection open timeout in seconds
     end
-    city_name = JSON.parse(response_city.body)["city"]
+    city_name = JSON.parse(response_city.body)['retData']["district"]
 
-    # response_city = conn.get do |req|
-    #   req.url '/apistore/weatherservice/citylist',:cityname => city_name
+    # response_city_code = conn.get do |req|
+    #   req.url '/apistore/weatherservice/cityname',:cityname => city_name
     #   req.headers['apikey'] = api_key
     #   req.options.timeout = 5           # open/read timeout in seconds
     #   req.options.open_timeout = 2      # connection open timeout in seconds
     # end
-    # city_id = JSON.parse(response_city.body)["retData"][0]['area_id']
+    # city_code = JSON.parse(response_city.body)["retData"][0]['area_id']
+
     if city_name
       response_weather = conn.get do |req|
-        req.url '/apistore/weatherservice/cityid',:cityname => city_name
+        req.url '/apistore/weatherservice/cityname',:cityname => city_name
         req.headers['apikey'] = api_key
         req.options.timeout = 5           # open/read timeout in seconds
         req.options.open_timeout = 2      # connection open timeout in seconds
