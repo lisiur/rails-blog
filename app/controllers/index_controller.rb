@@ -15,15 +15,6 @@ class IndexController < ApplicationController
   end
 
   def set_webgl
-    weather_list = {
-      "晴" => 'rain',
-      "多云" => 'rain',
-      "雪" => 'snow',
-      "雨" => 'rain',
-      '小雨' => 'rain',
-      '中雨' => 'rain',
-      '大雨' => 'rain'
-    }
     api_key  = "732b40aadc7409a1349780c6fb7a55f3"
     uri = 'http://apis.baidu.com'
     ip = request.remote_ip
@@ -42,18 +33,19 @@ class IndexController < ApplicationController
       req.options.open_timeout = 2      # connection open timeout in seconds
     end
     begin
-      city_name = JSON.parse(response_city.body)['retData']["district"]
+      city_name = JSON.parse(response_city.body)['retData']["city"]
+      # district_name = JSON.parse(response_city.body)['retData']["district"]
     rescue
       city_name = ''
     end
 
-    # response_city_code = conn.get do |req|
-    #   req.url '/apistore/weatherservice/cityname',:cityname => city_name
+    # response_city_list = conn.get do |req|
+    #   req.url '/apistore/weatherservice/citylist',:cityname => city_name
     #   req.headers['apikey'] = api_key
     #   req.options.timeout = 5           # open/read timeout in seconds
     #   req.options.open_timeout = 2      # connection open timeout in seconds
     # end
-    # city_code = JSON.parse(response_city.body)["retData"][0]['area_id']
+    # city_list = JSON.parse(response_city_list.body)["retData"]
 
     response_weather = conn.get do |req|
       req.url '/apistore/weatherservice/cityname',:cityname => city_name
