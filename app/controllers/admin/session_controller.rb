@@ -15,6 +15,7 @@ class Admin::SessionController < AdminController
 
   def destroy
     session[:author_id] = nil
+    session[:current_weather] = nil #for debugging
     redirect_to root_path
   end
 
