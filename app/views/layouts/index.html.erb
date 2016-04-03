@@ -62,7 +62,7 @@
 <%= javascript_include_tag 'index' %>
 <%= javascript_include_tag params[:controller] %>
 
-<%= javascript_include_tag "season/#{@weather}" %>
+<%= javascript_include_tag "season/#{session[:current_weather]}" %>
 </body>
 
 </html>
