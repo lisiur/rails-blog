@@ -62,7 +62,7 @@ class IndexController < ApplicationController
 
       @true_ip = ip
       @true_city = city_name
-      @true_weather = weather
+
 
       if !weather.nil?
         session[:current_weather] = 'rain' if weather.include?("雨")
@@ -70,5 +70,6 @@ class IndexController < ApplicationController
       end
       session[:current_weather] = 'snow' if session[:current_weather].nil?
     end
+    @true_weather = session[:current_weather]
   end
 end
