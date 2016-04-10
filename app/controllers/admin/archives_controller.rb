@@ -4,7 +4,7 @@ class Admin::ArchivesController < AdminController
   # GET /admin/archives
   # GET /admin/archives.json
   def index
-    @admin_archives = @login_author.archives
+    @admin_archives = @login_author.archives.order("created_at DESC")
   end
 
   # GET /admin/archives/1
