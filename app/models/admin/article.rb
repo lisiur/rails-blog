@@ -38,7 +38,7 @@ class Admin::Article < ActiveRecord::Base
 
   private
   def add_tag(tagName,author_id)
-    current_tag = Admin::Tag.find_by_name(tagName) || Admin::Tag.new(name:tagName,author_id:author_id)
+    current_tag = Admin::Tag.find_or_create_by(name:tagName,author_id:author_id)
     tags<<current_tag if current_tag.save
   end
 
