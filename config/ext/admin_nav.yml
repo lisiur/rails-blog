@@ -16,20 +16,20 @@ nav:
     text: 分类
     icon: th-list
     path: categories/index
-    controllers: categories
-    actions: index,new,edit,show
+    controllers: categories|articles
+    actions: index,new,edit,show|category
   -
     text: 标签
     icon: tag
     path: tags/index
-    controllers: tags
-    actions: index,new,edit,show
+    controllers: tags|articles
+    actions: index,new,edit,show|tag
   -
     text: 归档
     icon: list-alt
     path: archives/index
-    controllers: archives
-    actions: index,new,edit,show
+    controllers: archives|articles
+    actions: index,new,edit,show|archive
 #  -
 #    text: 留言
 #    icon: envelope
