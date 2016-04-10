@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Admin::Article.all.each do |a|
+  year,month = a.created_at.year,a.created_at.month
+  a.archive_id = Admin::Archive.find_or_create_by(year:year,month:month,author_id:a.author.id).id
+  a.save
+end
