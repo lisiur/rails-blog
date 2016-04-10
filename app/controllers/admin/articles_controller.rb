@@ -9,6 +9,20 @@ class Admin::ArticlesController < AdminController
     @admin_articles = @login_author.articles.order("created_at DESC")
   end
 
+  def category
+    @admin_articles = (category = @login_author.categories.find_by_name(params[:name])) && category.articles
+    render :index
+  end
+
+  def tag
+    @admin_articles = (tag = @login_author.tags.find_by_name(params[:name])) && tag.articles
+    render :index
+  end
+
+  def archive
+    @admin_articles = (archive = @login_author.archives.where(year:params[:year],month:params[:month])[0]) && archive.articles
+    render :index
+  end
   # GET /admin/articles/1
   # GET /admin/articles/1.json
   def show

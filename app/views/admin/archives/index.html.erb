@@ -11,7 +11,7 @@
   <tbody>
     <% @admin_archives.each do |admin_archive| %>
       <tr>
-        <td><%= "#{admin_archive.year}/#{admin_archive.month}" %></td>
+        <td><%= link_to "#{admin_archive.year}/#{admin_archive.month}","/admin/archive/#{admin_archive.year}/#{admin_archive.month}" %></td>
       </tr>
     <% end %>
   </tbody>

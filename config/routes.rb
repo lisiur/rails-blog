@@ -28,6 +28,9 @@ Rails.application.routes.draw do
     get 'login' => 'session#new'
     post 'login' => 'session#create'
     delete 'logout' => 'session#destroy'
+    get 'category/:name' => 'articles#category'
+    get 'tag/:name' => 'articles#tag'
+    get 'archive/:year/:month' => 'articles#archive'
     resources :archives
     resources :categories
     resources :tags
