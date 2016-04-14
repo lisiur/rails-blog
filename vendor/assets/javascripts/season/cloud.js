@@ -87,7 +87,7 @@ function init() {
 		camera.updateProjectionMatrix();
 		cameraCube.aspect = window.innerWidth / window.innerHeight;
 		cameraCube.updateProjectionMatrix();
-		renderer.setSize(window.innerWidth, window.innerHeight);
+		webGLRenderer.setSize(window.innerWidth, window.innerHeight);
 	}
 
 	function onDocumentMouseMove(event) {
