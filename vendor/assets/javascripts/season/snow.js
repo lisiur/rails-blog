@@ -1,4 +1,5 @@
 // once everything is loaded, we run our Three.js stuff.
+//= require three
 function init() {
     $("body").append("<div id='WebGL-output'></div>");
     styleForOutput = {

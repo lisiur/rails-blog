@@ -67,6 +67,7 @@ class IndexController < ApplicationController
       if !weather.nil?
         session[:current_weather] = 'rain' if weather.include?("雨")
         session[:current_weather] = 'snow' if weather.include?("雪")
+        session[:current_weather] = 'cloud' if weather.include?("云")
       end
       session[:current_weather] = 'snow' if session[:current_weather].nil?
     end
