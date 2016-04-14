@@ -20,7 +20,7 @@ function init() {
 	if (!Detector.webgl) Detector.addGetWebGLMessage();
 	var camera, scene, renderer;
 	var cameraCube, sceneCube;
-	var mesh, lightMesh, geometry;
+	var mesh, lightMesh, geometry, webGLRenderer;
 	var spheres = [];
 	var directionalLight, pointLight;
 	var mouseX = 0,
