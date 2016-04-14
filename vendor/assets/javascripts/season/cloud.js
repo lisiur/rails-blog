@@ -1,11 +1,8 @@
 //= require three.min
 //= require Detector
-
-
-
 function init() {
 	$("body").append("<div id='WebGL-output'></div>");
-	styleForOutput = {
+	var styleForOutput = {
 		'top': '0px',
 		'left': '0px',
 		'right': '0px',
