@@ -80,6 +80,8 @@ cn:
         greater_than_or_equal_to: "应当大于或等于%{count}"
         inclusion: "不是一个有效的值"
         not_an_integer: "不是一个整数"
+      
+
 
   views:
     pagination:

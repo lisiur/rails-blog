@@ -35,7 +35,8 @@
       </div>
       <%= f.label "标签" %>
       <div class="tag">
-        <ul class="tag-ul">
+        <input name="admin_article[tag_names]" class="tagsinput" data-role="tagsinput" value="<%= @admin_article.tags.map{|t| t.name}.join(',') %>" />
+        <!-- <ul class="tag-ul">
             <% @admin_article.tags.each do |t| %>
               <li class="inactive">
                 <%= text_field_tag "admin_article[tag_names][]",t.name %>
@@ -46,8 +47,10 @@
           <li class="current_input_tag">
             <%= text_field_tag "admin_article[tag_names][]",nil %>
           </li>
-        </ul>
+        </ul> -->
       </div>
+      
+
       <%= f.label "所属类型" %>
       <div class="type">
         <%= f.select :article_type_id,@all_article_types %>

@@ -124,7 +124,7 @@ class Admin::ArticlesController < AdminController
 
   def add_author_tags_categories_archive
     @admin_article.author_id = @login_author.id
-    @admin_article.tag_names = params["admin_article"]["tag_names"]
+    @admin_article.tag_names = params["admin_article"]["tag_names"].split(',')
     @admin_article.category_ids = params["admin_article"]["category_ids"]
     archive = Admin::Archive.find_or_create_by(author_id:@login_author.id,year:Time.now.year,month:Time.now.month)
     @admin_article.archive_id = archive.id
@@ -133,7 +133,7 @@ class Admin::ArticlesController < AdminController
   end
 
   def update_author_tags_categories
-    @admin_article.tag_names = params["admin_article"]["tag_names"]
+    @admin_article.tag_names = params["admin_article"]["tag_names"].split(',')
     @admin_article.category_ids = params["admin_article"]["category_ids"]
     @admin_article.add_categories
     @admin_article.add_tags(@login_author.id)

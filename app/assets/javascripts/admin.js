@@ -2,6 +2,7 @@
 // All this logic will automatically be available in application.js.
 //= require jquery
 //= require jquery_ujs
+//= require flatUI/flat-ui-pro.min
 $(document).ready(function(){
   $("#menu-login").hover(function(){
     $(".login_menu").stop(true).delay(200).slideDown("fast");
