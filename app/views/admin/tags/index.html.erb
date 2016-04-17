@@ -1,20 +1,32 @@
 <p id="notice"></p>
-
-<table class="table table-hover" >
-  <thead>
-    <tr>
-      <th>标签名</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @admin_tags.each do |admin_tag| %>
+<div class="panel panel-default table-responsive"> 
+  <div class="panel-heading">标签列表</div>
+  <table class="table table-hover" >
+    <thead>
       <tr>
-        <td><%= admin_tag.name %></td>
-        <td><%= link_to '编辑', edit_admin_tag_path(admin_tag) %></td>
-        <td><%= link_to '删除', admin_tag, method: :delete, data: { confirm: '确定删除?' } %></td>
+        <th class="text-center" width="20px"><label class="checkbox no-label toggle-all"><input type="checkbox" value=""data-toggle="checkbox"></label></th>
+        <th>标签名</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @admin_tags.each do |admin_tag| %>
+        <tr>
+          <td class="text-center"><label class="checkbox no-label"><input type="checkbox" value="" data-toggle="checkbox"></label></td>
+          <td class=""><label class="label label-primary"><%= admin_tag.name %></label></td>
+          <td class="text-center">
+            <%= link_to edit_admin_tag_path(admin_tag) do %>
+              <span class="fui-info-circle text-primary"></span>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <%= link_to admin_tag, method: :delete, data: { confirm: '确定删除?' } do %>
+              <span class="fui-cross-circle text-danger"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

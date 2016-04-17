@@ -34,7 +34,7 @@ function init() {
 	scene = new THREE.Scene();
 	sceneCube = new THREE.Scene();
 	var geometry = new THREE.SphereBufferGeometry(100, 32, 16);
-	var path = "images/";
+	var path = "/images/";
 	var format = '.jpg';
 	var urls = [
 		path + 'px' + format, path + 'nx' + format,

@@ -1,30 +1,42 @@
 <p id="notice"></p>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>分类名</th>
-      <th>父分类</th>
-      <th>子分类</th>
-      <th>文章数</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @admin_categories.each do |admin_category| %>
+<div class="panel panel-default table-responsive"> 
+  <div class="panel-heading">分类列表</div>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= admin_category.name %></td>
-        <td><%= admin_category.supcategory.name if admin_category.supcategory %></td>
-        <% if admin_category.subcategories.count>0 %>
-            <td><%= link_to admin_category.subcategories.count, admin_categories_path+"?supcategory=#{admin_category.id}" %></td>
-        <% else %>
-            <td><%= "无子分类" %></td>
-        <% end %>
-        <td><%= admin_category.articles.count %></td>
-        <td><%= link_to '编辑', edit_admin_category_path(admin_category) %></td>
-        <td><%= link_to '删除', admin_category, method: :delete, data: { confirm: '确定删除?' } %></td>
+        <th class="text-center" width="20px"><label class="checkbox no-label toggle-all"><input type="checkbox" value=""data-toggle="checkbox"></label></th>
+        <th>分类名</th>
+        <th>父分类</th>
+        <th>子分类</th>
+        <th>文章数</th>
+        <th colspan=""></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @admin_categories.each do |admin_category| %>
+        <tr>
+          <td class="text-center"><label class="checkbox no-label"><input type="checkbox" value="" data-toggle="checkbox"></label></td>
+          <td><span class="label label-primary"><%= admin_category.name %></span></td>
+          <td><%= admin_category.supcategory.name if admin_category.supcategory %></td>
+          <% if admin_category.subcategories.count>0 %>
+              <td><%= link_to admin_category.subcategories.count, admin_categories_path+"?supcategory=#{admin_category.id}" %></td>
+          <% else %>
+              <td><%= "无子分类" %></td>
+          <% end %>
+          <td><%= admin_category.articles.count %></td>
+          <td>
+            <%= link_to edit_admin_category_path(admin_category) do %>
+              <span class="fui-info-circle text-primary"></span>
+            <% end %>
+          </td>
+          <td class="text-center">
+            <%= link_to admin_category, method: :delete, data: { confirm: '确定删除?' } do %>
+              <span class="fui-cross-circle text-danger"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

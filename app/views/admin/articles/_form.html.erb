@@ -9,7 +9,7 @@
 
         <section class="md-tools-bar">
           <div class="md-tools-group right">
-            <span id="tool-preview" class="glyphicon glyphicon-eye-open"></span>
+            <span id="tool-preview" class="glyphicon glyphicon-eye-open item"></span>
           </div>
 
         </section>
@@ -17,7 +17,7 @@
         <div class="form-group">
           <%= f.text_area :content,id:"preview_text",class:"form-control",placeholder:"支持Markdown语法" %>
         </div>
-        <div id="side-preview"></div>
+        <div class="form-group" id="side-preview"></div>
 
 
         <div class="form-group action">
@@ -27,14 +27,16 @@
     </div>
     <div class="related-form">
       <%= f.label "分类" %>
-      <div class="category">
+      <div class="category form-group">
         <% @all_categories.each do |c| %>
-            <%= ("&nbsp&nbsp"*c.level).html_safe %>
-            <%= check_box_tag "admin_article[category_ids][]",c.id,@admin_article.categories.include?(c),{multiple:true} %><%= c.name %><br>
+          <label class="checkbox">
+            <!-- <%= ("&nbsp&nbsp"*c.level).html_safe %> -->
+            <%= check_box_tag "admin_article[category_ids][]",c.id,@admin_article.categories.include?(c),{multiple:true,'data-toggle' => "checkbox"} %><%= ">>"*c.level %><b><%= c.name %></b><br>
+          </label>
         <% end %>
       </div>
       <%= f.label "标签" %>
-      <div class="tag">
+      <div class="tag tagsinput-primary">
         <input name="admin_article[tag_names]" class="tagsinput" data-role="tagsinput" value="<%= @admin_article.tags.map{|t| t.name}.join(',') %>" />
         <!-- <ul class="tag-ul">
             <% @admin_article.tags.each do |t| %>
@@ -53,7 +55,7 @@
 
       <%= f.label "所属类型" %>
       <div class="type">
-        <%= f.select :article_type_id,@all_article_types %>
+        <%= f.select(:article_type_id,@all_article_types,{},{class:"form-control select select-primary"}) %>
       </div>
     </div>
 <% end %>

@@ -1,18 +1,21 @@
 <p id="notice"></p>
 
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @admin_archives.each do |admin_archive| %>
+<div class="panel panel-default table-responsive"> 
+  <div class="panel-heading">归档列表</div>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= link_to "#{admin_archive.year}/#{admin_archive.month}","/admin/archive/#{admin_archive.year}/#{admin_archive.month}" %></td>
+        <th>归档</th>
+        <!-- <th colspan="3"></th> -->
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @admin_archives.each do |admin_archive| %>
+        <tr>
+          <td><%= link_to "#{admin_archive.year}年#{admin_archive.month}月","/admin/archive/#{admin_archive.year}/#{admin_archive.month}" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

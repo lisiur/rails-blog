@@ -271,7 +271,7 @@ body{
   }
 }
 #bodyer{
-  padding-top: 85px;
+  padding-top: 65px;
   margin-left: 280px;
 
   #content{
@@ -279,22 +279,22 @@ body{
     width:90%;
     margin-left: 5%;
     height:auto;
-    form{
-      select{
-        min-width:200px;
-        height:35px;
-        background-color: white;
-        border: 1px solid #D1D1D1;
-        border-radius: 5px;
-      }
-      .submit{
-        border:1px solid #333333;
-        background-color: #333333;
-      }
-      .cancle{
-        background-color: $primary-color;
-      }
-    }
+    // form{
+    //   select{
+    //     min-width:200px;
+    //     height:35px;
+    //     background-color: white;
+    //     border: 1px solid #D1D1D1;
+    //     border-radius: 5px;
+    //   }
+    //   .submit{
+    //     border:1px solid #333333;
+    //     background-color: #333333;
+    //   }
+    //   .cancle{
+    //     background-color: $primary-color;
+    //   }
+    // }
   }
 }
 #footer{
