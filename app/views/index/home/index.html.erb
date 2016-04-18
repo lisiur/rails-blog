@@ -50,10 +50,9 @@
               </a>
             </div>
             <div class="footer-item right">
-              <span class="fui-tag"></span>
               <% a.tags.each do |t| %>
-                <%= link_to "/u/#{a.author.name}/tag/#{t.name}" do %>
-                  <span class="label label-default"><%= t.name %></span>
+                <%= link_to "/u/#{a.author.name}/tag/#{t.name}",class:"article-tag" do %>
+                  <span class="label label-primary"><%= t.name %></span>
                 <% end %>
               <% end %>
             </div>
