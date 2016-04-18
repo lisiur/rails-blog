@@ -7,7 +7,8 @@ class Admin::AuthorAvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :qiniu
+  self.qiniu_can_overwrite = true
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -45,7 +46,7 @@ class Admin::AuthorAvatarUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    Digest::SHA2.hexdigest(original_filename)[0..12]+Time.now.to_i.to_s+".#{original_filename.split('.')[-1]}" if original_filename
+    Digest::SHA2.hexdigest(original_filename)[0..12]+".#{original_filename.split('.')[-1]}" if original_filename
   end
 
 end
