@@ -4,7 +4,8 @@
       <section class="article">
         <div class="time-line">
           <div class="article-type">
-            <span class="glyphicon glyphicon-<%= a.article_type.glyphicon %>"></span>
+            <!-- <span class="glyphicon glyphicon-<%= a.article_type.glyphicon %>"></span> -->
+            <img src="/assets/img/icons/<%= a.article_type.glyphicon %>.svg">
           </div>
           <div class="article-date">
             <%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %>

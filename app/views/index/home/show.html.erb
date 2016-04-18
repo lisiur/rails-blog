@@ -3,14 +3,17 @@
 <section id="show-article" class="article">
   <div class="time-line">
     <div class="article-type">
-      <span class="glyphicon glyphicon-<%= @article.article_type.glyphicon %>"></span>
+      <!-- <span class="glyphicon glyphicon-<%= @article.article_type.glyphicon %>"></span> -->
+      <img src="/assets/img/icons/<%= @article.article_type.glyphicon %>.svg">
     </div>
     <div class="article-date">
       <%= DateTime.parse(@article.created_at.to_s).strftime('%Y-%m-%d') %>
     </div>
     <div class="article-author">
-      <%= image_tag(@article.author.avatar_url(:thumb)) if @article.author&&@article.author.avatar? %>
-      <span><%= @article.author.name if @article.author %></span>
+      <%= link_to "/u/#{@article.author.name}" do %>
+        <%= image_tag(@article.author.avatar_url(:thumb)) if @article.author&&@article.author.avatar? %>
+        <span><%= @article.author.name if @article.author %></span>
+      <% end %>
     </div>
 
   </div>

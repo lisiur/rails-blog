@@ -27,7 +27,8 @@
     <div id="admin">
       <% @all_article_types.each do |t| %>
           <%= link_to "/article-type/#{t.name}" do %>
-            <span class="glyphicon glyphicon-<%= t.glyphicon %>"></span>
+            <!-- <span class="glyphicon glyphicon-<%= t.glyphicon %>"></span> -->
+            <img src="/assets/img/icons/<%= t.glyphicon %>.svg">
             <i class="glyphicon-name"><%= t.name %></i>
           <% end %>
       <% end %>

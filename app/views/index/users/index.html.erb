@@ -4,14 +4,17 @@
       <section class="article">
         <div class="time-line">
           <div class="article-type">
-            <span class="glyphicon glyphicon-<%= a.article_type.glyphicon %>"></span>
+            <!-- <span class="glyphicon glyphicon-<%= a.article_type.glyphicon %>"></span> -->
+            <img src="/assets/img/icons/<%= a.article_type.glyphicon %>.svg">
           </div>
           <div class="article-date">
             <%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %>
           </div>
           <div class="article-author">
-            <%= image_tag(a.author.avatar_url(:thumb)) if a.author&&a.author.avatar? %>
-            <span><%= a.author.name if a.author %></span>
+            <%= link_to "/u/#{a.author.name}" do %>
+              <%= image_tag(a.author.avatar_url(:thumb)) if a.author&&a.author.avatar? %>
+              <span><%= a.author.name if a.author %></span>
+            <% end %>
           </div>
         </div>
         <div class="article-main">
