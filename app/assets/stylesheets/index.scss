@@ -439,22 +439,8 @@ body{
 #footer{
   position: relative;
   z-index: 99;
-  border-top: 1px solid #dddddd;
   bottom: 0px;
   left: 0px;
   right: 0px;
-  height:60px;
-  background-color: #eee;
-  color:#90A1AC;
-  font-size: 20px;
-  text-align: center;
-  a,a:hover{
-    font-size: 16px;
-    text-decoration: none;
-    color:#90A1AC;
-  }
-  span{
-    // display: block;
-    // padding-top: 12px;
-  }
+
 }
