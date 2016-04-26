@@ -1,4 +1,6 @@
 
-
-<%= render 'form' %>
-
+<% if @admin_article.editor == 0 %>
+  <%= render 'form' %>
+<% elsif @admin_article.editor == 1 %>
+  <%= render 'form_ckeditor' %>
+<% end %>

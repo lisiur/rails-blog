@@ -22,7 +22,8 @@
       <h1><%= @article.title %></h1>
     </div>
     <div class="article-content">
-      <%= markdown @article.content %>
+      <%= markdown @article.content if @article.editor ==0 %>
+      <%= raw @article.content.html_safe if @article.editor ==1 %>
     </div>
   </div>
 </section>

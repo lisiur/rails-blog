@@ -39,8 +39,6 @@ gem 'momentjs-rails'
 # 用于抹平浏览器间的部分兼容性问题
 gem "autoprefixer-rails"
 
-gem 'icheck-rails'
-
 # 分页插件
 gem 'kaminari'
 
@@ -54,7 +52,7 @@ gem 'carrierwave'
 # 处理Excel导入
 gem 'roo'
 # 富文本编辑器
-gem 'ckeditor'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'responders', '~> 2.0'
 
 # 文件信息检查器

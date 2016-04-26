@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   namespace :index do
     get 'home/index'
     get 'article/:title' => 'home#show',title: /[^\/]+/,as: :article

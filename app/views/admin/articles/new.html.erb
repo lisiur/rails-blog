@@ -1,4 +1,7 @@
 
 
-<%= render 'form' %>
-
+<% if @editor_type == 0 %>
+  <%= render 'form' %>
+<% elsif @editor_type == 1 %>
+  <%= render 'form_ckeditor' %>
+<% end %>

@@ -19,4 +19,22 @@
       <span>未发表博文</span>
     </a>
   </li>
+  
+  <li>
+    <%= link_to new_admin_article_path+"?editor=ckeditor" do %>
+      <i class="glyphicon glyphicon-star"></i>
+      <span>ckeditor</span>
+    </a>
+    <% end %>
+  </li>
+
+  <li>
+    <%= link_to new_admin_article_path do %>
+      <i class="glyphicon glyphicon-star"></i>
+      <span>mdeditor</span>
+    </a>
+    <% end %>
+  </li>
+  
+
 </ul>

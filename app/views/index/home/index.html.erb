@@ -22,7 +22,7 @@
             <h1><%= link_to a.title,index_article_path(a.title) %></h1>
           </div>
           <div class="article-content">
-            <%= a.abstract %>
+            <%= a.abstract.gsub(/<\/?.*?>/,"") %>
           </div>
           <div class="article-footer">
             <div class="footer-item left">

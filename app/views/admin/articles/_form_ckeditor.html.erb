@@ -6,20 +6,10 @@
         <div class="form-group">
           <%= f.text_field :title, class:"form-control",placeholder:"请输入标题" %>
         </div>
-        
-        <section class="md-tools-bar">
-          <div class="md-tools-group right">
-            <span id="tool-preview" class="glyphicon glyphicon-eye-open item"></span>
-          </div>
-
-        </section>
-        
         <div class="form-group">
-          <%= f.text_area :content,id:"preview_text",class:"form-control",placeholder:"支持Markdown语法" %>
+          <%= f.cktext_area :content, :ckeditor => {:uiColor => '#333333', :toolbar => 'medium',:height => 300} %>
         </div>
-        <div class="form-group" id="side-preview"></div>
-        <%= f.text_field :editor,value: 0,class:"sr-only" %>
-
+        <%= f.text_field :editor,value: 1,class:"sr-only" %>
         <div class="form-group action">
           <%= link_to '取消', admin_articles_path,class:"btn btn-default cancle" %>
           <%= f.submit class:"btn btn-primary submit",id:"submit" %>

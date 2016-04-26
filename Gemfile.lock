@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: 123389ea325b1521a3ac68cc0b1bac627a12f34b
+  specs:
+    ckeditor (4.1.6)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
 GEM
   remote: https://ruby.taobao.org/
   specs:
@@ -71,9 +79,6 @@ GEM
     carrierwave-qiniu (0.1.5)
       carrierwave
       qiniu (~> 6.2.4)
-    ckeditor (4.1.6)
-      cocaine
-      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -93,10 +98,6 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
-    icheck-rails (1.0.2.2)
-      jquery-rails
-      rails (>= 3.1.0)
-      sass-rails
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -231,11 +232,10 @@ DEPENDENCIES
   capistrano-rails
   carrierwave
   carrierwave-qiniu
-  ckeditor
+  ckeditor!
   coderay
   dalli
   faraday
-  icheck-rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari

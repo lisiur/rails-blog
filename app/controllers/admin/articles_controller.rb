@@ -31,10 +31,20 @@ class Admin::ArticlesController < AdminController
   # GET /admin/articles/new
   def new
     @admin_article = Admin::Article.new
+    if params[:editor] && params[:editor] == "ckeditor"
+      @editor_type = 1
+    else
+      @editor_type = 0
+    end
   end
 
   # GET /admin/articles/1/edit
   def edit
+    if params[:editor] && params[:editor] == "ckeditor"
+      @editor_type = 1
+    else
+      @editor_type = 0
+    end
   end
 
   def preview
@@ -52,6 +62,7 @@ class Admin::ArticlesController < AdminController
   # POST /admin/articles.json
   def create
     @admin_article = Admin::Article.new(admin_article_params)
+   
     add_author_tags_categories_archive
     respond_to do |format|
       if @admin_article.save
@@ -140,6 +151,6 @@ class Admin::ArticlesController < AdminController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_article_params
-      params.require(:admin_article).permit(:title, :content, :tag_names, :category_ids, :article_type_id)
+      params.require(:admin_article).permit(:title, :content, :tag_names, :category_ids, :article_type_id, :editor)
     end
 end
