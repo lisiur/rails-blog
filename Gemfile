@@ -52,7 +52,7 @@ gem 'carrierwave'
 # 处理Excel导入
 gem 'roo'
 # 富文本编辑器
-gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'ckeditor'
 gem 'responders', '~> 2.0'
 
 # 文件信息检查器

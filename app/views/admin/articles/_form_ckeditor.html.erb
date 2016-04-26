@@ -7,7 +7,7 @@
           <%= f.text_field :title, class:"form-control",placeholder:"请输入标题" %>
         </div>
         <div class="form-group">
-          <%= f.cktext_area :content, :ckeditor => {:uiColor => '#333333', :toolbar => 'medium',:height => 300} %>
+          <%= f.cktext_area :content, :ckeditor => {:uiColor => '#333333', :toolbar => 'medium',:language => 'en',:height => 300} %>
         </div>
         <%= f.text_field :editor,value: 1,class:"sr-only" %>
         <div class="form-group action">
