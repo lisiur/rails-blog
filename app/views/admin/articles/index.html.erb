@@ -8,8 +8,8 @@
       <tr>
         <th class="text-center" width="20px"><label class="checkbox no-label toggle-all"><input type="checkbox" value=""data-toggle="checkbox"></label></th>
         <th>标题</th>
-        <th>所属分类</th>
-        <th>所属标签</th>
+        <!-- <th>所属分类</th>
+        <th>所属标签</th> -->
 
         <th>发表时间</th>
         <th>状态</th>
@@ -24,10 +24,10 @@
 
           <td class="article-title">
             <%= link_to  edit_admin_article_path(admin_article),   title:admin_article.title do %>
-              <span class="label label-primary"><%= admin_article.title[0..5]+(admin_article.title.length>5?'...':'') %></span>
+              <span class="label label-primary"><%= admin_article.title %></span>
             <% end %>
           </td>
-          <td class="article-category">
+          <!-- <td class="article-category">
             <% admin_article.categories.each do |c| %>
               <%= link_to "/admin/category/#{c.name}" do %>
                 <span class="label label-default"><%= c.name %></span>
@@ -40,7 +40,7 @@
                 <span class="label label-default"><%= t.name %></span>
               <% end %>
             <% end %>
-          </td>
+          </td> -->
           <td class="article-created_at"><%= DateTime.parse(admin_article.created_at.to_s).strftime('%Y-%m-%d') %></td>
           <td class="article-state">
             <span class="label label-primary"><%= admin_article.state %></span>
