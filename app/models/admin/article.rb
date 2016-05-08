@@ -34,6 +34,7 @@ class Admin::Article < ActiveRecord::Base
   def add_tags(author_id)
     tags.clear
     tag_names.each {|t| add_tag(t,author_id)} if tag_names
+    tags = tags.uniq if tags
   end
 
   private
@@ -46,5 +47,6 @@ class Admin::Article < ActiveRecord::Base
     current_category = Admin::Category.find_by_id(categoryId)
     categories<<current_category if current_category
   end
+
 
 end

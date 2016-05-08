@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   mount Ckeditor::Engine => '/ckeditor'
   namespace :index do
     get 'home/index'
@@ -43,4 +44,7 @@ Rails.application.routes.draw do
     post 'mdtools/preview' => 'mdtools#preview'
   end
 
+  namespace :api do
+    post 'push_article' => 'article#index'
+  end
 end

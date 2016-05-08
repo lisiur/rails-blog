@@ -1,0 +1,93 @@
+<div class="line"></div>
+<% if !@all_articles.nil? %>
+  <% @all_articles.each do |a| %>
+      <section class="article">
+        <div class="time-line">
+          <div class="article-type">
+            <img src="/assets/img/icons/<%= a.article_type.glyphicon %>.svg">
+          </div>
+          <div class="article-date">
+            <%= DateTime.parse(a.created_at.to_s).strftime('%Y-%m-%d') %>
+          </div>
+          <div class="article-author">
+            <%= link_to "/u/#{a.author.name}" do %>
+            <%= image_tag(a.author.avatar_url(:thumb)) if a.author&&a.author.avatar? %>
+            <span><%= a.author.name if a.author %></span>
+            <% end %>
+          </div>
+        </div>
+        <div class="article-main">
+          <div class="article-title">
+            <h1><%= link_to a.title,index_article_path(a.title) %></h1>
+          </div>
+          <div class="article-content">
+            <%= a.abstract.gsub(/<\/?.*?>/,"") %>
+          </div>
+          <div class="article-footer">
+            <div class="footer-item left">
+              <a href="<%= index_article_path(a.title)  %>">
+                <i class="glyphicon glyphicon-eye-open"></i>
+                <span><%= a.watch_count %><span>
+              </a>
+            </div>
+            <div class="footer-item left">
+              <a href="<%= index_article_path(a.title)+"#comment" %>">
+                <i class="glyphicon glyphicon-comment"></i>
+                <span class="ds-thread-count" id="<%= "comment#{a.id}" %>">
+                  <script type="text/javascript">
+                  var duoshuoQuery = {short_name:"lisiur",id:<%= a.id %>};
+                  (function() {
+                    var url = "http://api.duoshuo.com/threads/counts.jsonp?short_name="+duoshuoQuery.short_name+"&threads="+duoshuoQuery.id+ "&callback=?"
+                    $.getJSON(url,function(data){
+                      comment_count = data.response["<%= a.id %>"].comments;
+                      currentEleId = "#comment"+<%= a.id %>
+                      $(currentEleId).append(comment_count);
+                    });
+                  })();
+                  </script>
+                </span>
+              </a>
+            </div>
+            <div class="footer-item right">
+              <% a.tags.each do |t| %>
+                <%= link_to "/u/#{a.author.name}/tag/#{t.name}",class:"article-tag" do %>
+                  <span class="label label-primary"><%= t.name %></span>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </section>
+  <% end %>
+<% else %>
+  <%= render html:'<div class="not-found">未找到相关文章！</div>'.html_safe %>
+<% end %>
+<div class="pagination-wrap">
+<!-- <div class="pagination pagination-minimal">
+  <ul>
+    <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
+    <li class="active"><a href="#fakelink">1</a></li>
+    <li><a href="#fakelink">2</a></li>
+    <li><a href="#fakelink">3</a></li>
+    <li><a href="#fakelink">4</a></li>
+    <li><a href="#fakelink">5</a></li>
+    <li><a href="#fakelink">6</a></li>
+    <li><a href="#fakelink">7</a></li>
+    <li><a href="#fakelink">8</a></li>
+    <li><a href="#fakelink">9</a></li>
+    <li><a href="#fakelink">10</a></li>
+    <li class="pagination-dropdown dropup">
+      <a href="#fakelink" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fui-triangle-up"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#fakelink">10–20</a></li>
+        <li><a href="#fakelink">20–30</a></li>
+        <li><a href="#fakelink">40–50</a></li>
+      </ul>
+    </li>
+    <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
+  </ul> -->
+  <%= paginate @all_articles %>
+</div>
+</div>
