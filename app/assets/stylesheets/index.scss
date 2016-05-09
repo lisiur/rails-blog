@@ -15,8 +15,8 @@ body{
       text-decoration: none;
     }
   }
-  h1{
-    font-size: 30px;
+  h1,h2,h3,h4,h5,h6{
+    font-size: 200%;
   }
   ul{
     list-style:none;
@@ -249,7 +249,7 @@ body{
       .article-title{
         text-align: left;
         h1{
-          font-size: 28px;
+          font-size: 48px;
           font-weight: bold;
           color:$icon-color;
           a{
@@ -259,9 +259,9 @@ body{
                 content: '';
                 position: absolute;
                 left: 15px;
-                top: 30px;
-                width: 5px;
-                height: 30px;
+                top: 37px;
+                width: 8px;
+                height: 40px;
                 background-color:#1ABC9C;
               }
             }
@@ -274,6 +274,40 @@ body{
         font-size: 16px;
         line-height:20pt;
         padding-bottom: 30px;
+        p{
+          margin:0;
+        }
+        h1,h2,h3,h4,h5,h6{
+           margin-top:15px;
+           margin-bottom:10px;
+        }
+        h1{
+          position: relative;
+          &:after{
+            content: "";
+            width: 5px;
+            height:35px;
+            position: absolute;
+            background-color: #1ABC9C;
+            left:-10px;
+          }
+        }
+        code{
+          color: #DDD;
+          background: #4D4C48;
+        }
+        .code{
+          pre{
+            background-color: #3D3C38;
+            color: #DDD;
+          }
+        }
+        blockquote{
+          border-left: 5px solid #5D5C58;
+          background-color: #0B2A34;
+          color: #DDD;
+          margin: 10px 0;
+        }
       }
       .article-footer{
         position: absolute;
