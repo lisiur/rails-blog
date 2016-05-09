@@ -16,8 +16,10 @@ module ApplicationHelper
 
   class HTMLwithCodeRay < Redcarpet::Render::HTML
     def block_code(code, language)
-      language = "html" if language.nil?
-      CodeRay.scan(code, language).div(:tab_width=>2)
+      language = "ruby" if language.nil?
+      CodeRay.scan(code, language).div(
+        :css => :style 
+      )
     end
   end
 end
