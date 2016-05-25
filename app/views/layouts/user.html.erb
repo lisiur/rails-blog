@@ -97,6 +97,13 @@
 <%= javascript_include_tag params[:controller] %>
 
 <%= javascript_include_tag "season/#{session[:current_weather]}" %>
+<script>
+function rmweather(){
+     dom = document.getElementById("WebGL-output");
+     $(dom).fadeOut(5000);
+}
+var t = window.setTimeout(rmweather,3000);
+</script>
 </body>
 
 </html>

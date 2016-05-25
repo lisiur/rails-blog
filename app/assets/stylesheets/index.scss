@@ -8,9 +8,7 @@ $primary-color: #f7f6f2;
 $icon-color:#1ABC9C;
 $article-main-background-color:#efefef;
 body{
-  //background-color: #F3F6F7;
-  background: image_url("bg.jpg");
-  background-size: cover;
+  background-color: #F3F6F7;
   a{
     text-decoration:none;
     &:hover{
