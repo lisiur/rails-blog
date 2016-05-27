@@ -242,7 +242,7 @@ body{
       .article-title{
         text-align: left;
         h1{
-          font-size: 46px;
+          font-size: 36px;
           font-weight: bold;
           color:$icon-color;
           a{
@@ -252,9 +252,9 @@ body{
                 content: '';
                 position: absolute;
                 left: 15px;
-                top: 30px;
-                width: 8px;
-                height: 40px;
+                top: 34px;
+                width: 6px;
+                height: 30px;
                 background-color:#1ABC9C;
               }
             }
