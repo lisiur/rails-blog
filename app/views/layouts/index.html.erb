@@ -62,7 +62,7 @@
 </div>
 <%= javascript_include_tag 'index' %>
 <%= javascript_include_tag params[:controller] %>
-
+<!--
 <%= javascript_include_tag "season/#{session[:current_weather]}" %>
 <script>
 function rmweather(){
@@ -71,6 +71,7 @@ function rmweather(){
 }
 var t = window.setTimeout(rmweather,3000);
 </script>
+-->
 </body>
 
 </html>
