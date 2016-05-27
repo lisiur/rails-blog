@@ -4,11 +4,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "flatUI/flat-ui-pro.min";
-$primary-color: #f7f6f2;
+$primary-color: #f3f6f7;
 $icon-color:#1ABC9C;
-$article-main-background-color:#efefef;
+$article-main-background-color:#fff;
 body{
-  background-color: #F3F6F7;
+  background-color: $primary-color;
   a{
     text-decoration:none;
     &:hover{
@@ -31,7 +31,7 @@ body{
     top:0;
     left:0;
     right:0;
-    background-color: #eee;
+    background-color: #fff;
     border-bottom: 1px solid #dddddd;
     height:60px;
     #logo{
@@ -162,13 +162,6 @@ body{
         width:60px;
         height:60px;
         border-radius: 100%;
-        // background-color: #1ABC9C;
-        // span{
-        //   padding-top: 18px;
-        //   color:white;
-        //   font-size: 25px;
-        //   font-weight: bold;
-        // }
         img{
           width:50px;
           // border-radius:50%;
@@ -249,7 +242,7 @@ body{
       .article-title{
         text-align: left;
         h1{
-          font-size: 48px;
+          font-size: 46px;
           font-weight: bold;
           color:$icon-color;
           a{
@@ -259,7 +252,7 @@ body{
                 content: '';
                 position: absolute;
                 left: 15px;
-                top: 37px;
+                top: 30px;
                 width: 8px;
                 height: 40px;
                 background-color:#1ABC9C;
@@ -271,7 +264,7 @@ body{
       }
       .article-content{
         color:#888;
-        font-size: 16px;
+        font-size: 20px;
         line-height:20pt;
         padding-bottom: 30px;
         p{
@@ -282,26 +275,73 @@ body{
            margin-bottom:10px;
         }
         h1{
+          font-size: 36px;
           position: relative;
           &:after{
             content: "";
-            width: 5px;
-            height:35px;
+            width: 6px;
+            height:32px;
+            top:4px;
             position: absolute;
             background-color: #1ABC9C;
             left:-10px;
           }
         }
+        h2{
+          position: relative;
+          font-size: 32px;
+          &:after{
+            content: "";
+            width: 5px;
+            height:28px;
+            top:4px;
+            position: absolute;
+            background-color: #1ABC9C;
+            left:-10px;
+          }
+        }
+        h3{
+          position: relative;
+          font-size: 28px;
+          &:after{
+            content: "";
+            width: 4px;
+            height:26px;
+            top:4px;
+            position: absolute;
+            background-color: #1ABC9C;
+            left:-10px;
+          }
+        }
+        h4{
+          position: relative;
+          &:after{
+            content: "";
+            width: 3px;
+            height:22px;
+            top:4px;
+            position: absolute;
+            background-color: #1ABC9C;
+            left:-10px;
+          }
+        }
+
+
+
         code{
           color: #DDD;
           background: #4D4C48;
         }
         .code{
           pre{
+              font-size:18px;
+              line-height:18px;
             //background-color: #9D9C98;
           }
         }
         blockquote{
+          font-size: 18px;
+          line-height: 18px;
           border-left: 5px solid #5D5C58;
           background-color: #0B2A34;
           color: #DDD;
@@ -371,7 +411,6 @@ body{
       height:auto;
       width:65%;
       .article-content{
-        padding-top: 25px;
         color: #555;
         //img{
           //width:100%;
