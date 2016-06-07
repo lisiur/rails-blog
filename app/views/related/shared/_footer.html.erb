@@ -25,19 +25,31 @@
       <div class="col-md-3 col-sm-3">
         <span style="padding-top: 50px;">
         &copy;<%= "#{2015}-#{Time.new.year} Lisiur's Blog" %><br>
-        <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备15011725号</a>
         </span>
+		<div style="width:300px;margin:0 auto; ">
+            <a href="http://www.miitbeian.gov.cn/" target="_blank" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;" >苏ICP备15011725号</a>
+		</div>
+        <% if request.domain=="daipeiwu" %>
+		<div style="width:300px;margin:0 auto; ">
+		 	<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32011502010132" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">苏公网安备 32011502010132号</p></a>
+		</div>
+        <% elsif request.domain=="lisiur" %>
+		<div style="width:300px;margin:0 auto; ">
+		 	<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32011502010133" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">苏公网安备 32011502010133号</p></a>
+		</div>
+    <% end %>
       </div>
       <div class="col-md-6 col-sm-6">
-          <!--
-            <a href="https://coding.net/u/daikanshan">Coding</a>
-            <a href="https://github.com/daikanshan">Github</a>
-            <a href="http://blog.lisiur.com">Blog</a>
+          <ul class="bottom-menu-list">
+              <li><a href="https://coding.net/u/daikanshan" target="_blanck">Coding</a></li>
+              <li><a href="https://github.com/daikanshan" target="_blanck">Github</a></li>
 
-            <a href="mailto:lisiur@163.com">email</a>
-            <a href="https://www.facebook.com/lisiur.day">facebook</a>
-            <a href="https://twitter.com/LisiurDay">twitter</a>
-          -->
+              <li><a href="mailto:lisiurday@gmail.com">email</a></li>
+              <li><a href="https://www.facebook.com/lisiur.day" target="_blanck">facebook</a></li>
+              <li><a href="https://twitter.com/LisiurDay" target="_blanck">twitter</a></li>
+
+              <li><a href="https://portal.shadowsocks.com/aff.php?aff=7502" target="_blanck">科学上网</a></li>
+          </ul>
       </div>
 
       <div class="col-md-3 col-sm-3">
@@ -50,3 +62,4 @@
     </div>
   </div>
 </div> <!-- /bottom-menu -->
+		 
